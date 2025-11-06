@@ -318,6 +318,29 @@
             }
         }
 
+        /* Notification animations */
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -2474,8 +2497,38 @@
                     'event_label': location,
                     'value': 1
                 });
+                console.log('✅ CV Download tracked successfully from:', location);
+                // Optional: Show a subtle notification
+                showNotification('CV download tracked! Check Google Analytics Real-time.');
+            } else {
+                console.warn('⚠️ Google Analytics not loaded. Event not tracked.');
             }
-            console.log('CV Download tracked from:', location);
+        }
+
+        // Show notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #000;
+                color: #fff;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                z-index: 9999;
+                font-size: 14px;
+                animation: slideIn 0.3s ease;
+            `;
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
 
         // Mobile Sidebar Toggle
