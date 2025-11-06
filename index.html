@@ -146,6 +146,76 @@
             padding: 0;
             min-height: 100vh;
             height: 100%;
+            transition: direction 0.3s ease;
+        }
+
+        /* RTL Support for Arabic */
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        body.rtl .sidebar {
+            left: auto;
+            right: 0;
+            border-right: none;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.rtl .main-content {
+            margin-left: 0;
+            margin-right: 280px;
+        }
+
+        body.rtl .footer {
+            margin-left: 0;
+            margin-right: 280px;
+        }
+
+        body.rtl .menu-toggle {
+            left: auto;
+            right: 20px;
+        }
+
+        body.rtl .language-toggle {
+            right: auto;
+            left: 20px;
+        }
+
+        body.rtl .nav-menu a:hover,
+        body.rtl .nav-menu a.active {
+            transform: translateX(-5px);
+        }
+
+        body.rtl .section-title h2::after {
+            left: auto;
+            right: 0;
+        }
+
+        body.rtl .hero-content {
+            text-align: right;
+        }
+
+        body.rtl .btn-primary-custom,
+        body.rtl .btn-outline-custom {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        body.rtl .btn-primary-custom i,
+        body.rtl .btn-outline-custom i {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+
+        body.rtl .timeline-item {
+            text-align: right;
+        }
+
+        body.rtl .service-card,
+        body.rtl .project-card {
+            text-align: right;
         }
 
         /* Visually Hidden Class for Screen Readers */
@@ -1385,11 +1455,48 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Language Toggle Button */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #000000 0%, #4a4a4a 100%);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #1a1a1a 0%, #5a5a5a 100%);
+        }
+
+        .language-toggle i {
+            font-size: 16px;
+        }
+
+        .language-toggle span {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
         /* Print Styles */
         @media print {
 
             .sidebar,
             .menu-toggle,
+            .language-toggle,
             .scroll-to-top,
             #preloader {
                 display: none !important;
@@ -1654,6 +1761,12 @@
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" aria-label="Switch Language">
+        <i class="fas fa-globe"></i>
+        <span id="currentLang">EN</span>
     </button>
 
     <!-- Sidebar -->
@@ -2494,6 +2607,413 @@
                     preloader.style.display = 'none';
                 }, 500);
             }, 800);
+        });
+
+        // Comprehensive Language Translations
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                aboutMe: "About Me",
+                education: "Education",
+                experience: "Experience",
+                skills: "Skills",
+                services: "Services",
+                projects: "Projects",
+                testimonials: "Testimonials",
+                contact: "Contact",
+                
+                // Hero Section
+                hello: "Hello! Professional!",
+                imText: "I'm",
+                name: "Abdel Hady Habib",
+                heroTitle: "Senior Construction Manager & MEP Engineering Leader",
+                heroDesc: "With 14+ years of excellence in delivering large-scale MEP projects worth SAR 700M+. Specialized in stadium construction, royal projects, and commercial developments with proven expertise in Aramco and FIFA standards.",
+                hireMe: "Hire Me",
+                downloadCV: "Download CV",
+                
+                // Profile
+                seniorManager: "Senior Construction Manager",
+                
+                // About Section
+                aboutCategory: "About Me",
+                aboutTitle: "I'm In The Construction Industry With 14 Years Of Experience",
+                
+                // Education Section
+                educationCategory: "Education",
+                educationTitle: "My Academic Background",
+                
+                // Experience Section
+                experienceCategory: "Experience",
+                experienceTitle: "My Professional Journey",
+                
+                // Skills Section
+                skillsCategory: "Skills",
+                skillsTitle: "My Professional Skills",
+                
+                // Services Section
+                servicesCategory: "Services",
+                servicesTitle: "What I Do",
+                
+                // Projects Section
+                projectsCategory: "Projects",
+                projectsTitle: "Featured Projects",
+                
+                // Testimonials Section
+                testimonialsCategory: "Testimonials",
+                testimonialsTitle: "What Clients Say",
+                
+                // Contact Section
+                contactCategory: "Contact",
+                contactTitle: "Get In Touch",
+                
+                // Footer
+                about: "ABOUT",
+                quickLinks: "QUICK LINKS",
+                servicesText: "SERVICES",
+                contactInfo: "CONTACT INFO",
+                footerAboutText: "Senior Construction Manager with 14+ years of experience in delivering large-scale MEP projects across Saudi Arabia.",
+                homeLink: "Home",
+                aboutMeLink: "About Me",
+                experienceLink: "Experience",
+                projectsLink: "Projects",
+                contactLink: "Contact",
+                projectManagement: "Project Management",
+                mepDesign: "MEP Design & Execution",
+                budgetControl: "Budget Control",
+                qualityAssurance: "Quality Assurance",
+                teamLeadership: "Team Leadership",
+                location: "Dammam, Saudi Arabia",
+                email: "ehadyhabib@gmail.com",
+                phone: "+966 59 943 3137",
+                copyright: "Copyright © 2025 Abdel Hady Habib. All Rights Reserved.",
+                
+                // Buttons
+                contactMe: "Contact Me",
+                sendMessage: "Send Message",
+                
+                // Stats
+                projectsCompleted: "Projects Completed",
+                yearsExperience: "Years Experience",
+                happyClients: "Happy Clients",
+                awards: "Awards Won"
+            },
+            ar: {
+                // Navigation
+                home: "الرئيسية",
+                aboutMe: "نبذة عني",
+                education: "التعليم",
+                experience: "الخبرة",
+                skills: "المهارات",
+                services: "الخدمات",
+                projects: "المشاريع",
+                testimonials: "التوصيات",
+                contact: "اتصل بي",
+                
+                // Hero Section
+                hello: "مرحباً! محترف!",
+                imText: "أنا",
+                name: "عبد الهادي حبيب",
+                heroTitle: "مدير إنشاءات أول وقائد هندسة الأنظمة الكهروميكانيكية",
+                heroDesc: "مع أكثر من 14 عامًا من التميز في تسليم مشاريع الأنظمة الكهروميكانيكية واسعة النطاق بقيمة أكثر من 700 مليون ريال سعودي. متخصص في بناء الملاعب والمشاريع الملكية والتطورات التجارية مع خبرة مثبتة في معايير أرامكو والفيفا.",
+                hireMe: "وظفني",
+                downloadCV: "تحميل السيرة الذاتية",
+                
+                // Profile
+                seniorManager: "مدير إنشاءات أول",
+                
+                // About Section
+                aboutCategory: "نبذة عني",
+                aboutTitle: "أنا في صناعة البناء مع 14 عامًا من الخبرة",
+                
+                // Education Section
+                educationCategory: "التعليم",
+                educationTitle: "خلفيتي الأكاديمية",
+                
+                // Experience Section
+                experienceCategory: "الخبرة",
+                experienceTitle: "رحلتي المهنية",
+                
+                // Skills Section
+                skillsCategory: "المهارات",
+                skillsTitle: "مهاراتي المهنية",
+                
+                // Services Section
+                servicesCategory: "الخدمات",
+                servicesTitle: "ما أقدمه",
+                
+                // Projects Section
+                projectsCategory: "المشاريع",
+                projectsTitle: "المشاريع المميزة",
+                
+                // Testimonials Section
+                testimonialsCategory: "التوصيات",
+                testimonialsTitle: "آراء العملاء",
+                
+                // Contact Section
+                contactCategory: "اتصل بي",
+                contactTitle: "تواصل معي",
+                
+                // Footer
+                about: "نبذة",
+                quickLinks: "روابط سريعة",
+                servicesText: "الخدمات",
+                contactInfo: "معلومات الاتصال",
+                footerAboutText: "مدير إنشاءات أول مع أكثر من 14 عامًا من الخبرة في تنفيذ مشاريع MEP واسعة النطاق في جميع أنحاء المملكة العربية السعودية.",
+                homeLink: "الرئيسية",
+                aboutMeLink: "نبذة عني",
+                experienceLink: "الخبرة",
+                projectsLink: "المشاريع",
+                contactLink: "اتصل بي",
+                projectManagement: "إدارة المشاريع",
+                mepDesign: "تصميم وتنفيذ الأنظمة الكهروميكانيكية",
+                budgetControl: "التحكم في الميزانية",
+                qualityAssurance: "ضمان الجودة",
+                teamLeadership: "قيادة الفريق",
+                location: "الدمام، المملكة العربية السعودية",
+                email: "ehadyhabib@gmail.com",
+                phone: "٩٦٦٥٩٩٤٣٣١٣٧+",
+                copyright: "جميع الحقوق محفوظة © 2025 عبد الهادي حبيب.",
+                
+                // Buttons
+                contactMe: "اتصل بي",
+                sendMessage: "إرسال رسالة",
+                
+                // Stats
+                projectsCompleted: "المشاريع المنجزة",
+                yearsExperience: "سنوات الخبرة",
+                happyClients: "العملاء السعداء",
+                awards: "الجوائز المحصلة"
+            }
+        };
+
+        // Store original English content (done once on page load)
+        let originalContent = {};
+        let contentStored = false;
+
+        function storeOriginalContent() {
+            if (contentStored) return;
+            
+            // Store all text elements
+            document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, a, button').forEach((el, index) => {
+                const id = `el_${index}`;
+                el.setAttribute('data-original-id', id);
+                originalContent[id] = el.innerHTML;
+            });
+            contentStored = true;
+        }
+
+        // Restore original English content
+        function restoreOriginalContent() {
+            Object.keys(originalContent).forEach(id => {
+                const el = document.querySelector(`[data-original-id="${id}"]`);
+                if (el) {
+                    el.innerHTML = originalContent[id];
+                }
+            });
+        }
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            const body = document.body;
+            const currentLang = body.classList.contains('rtl') ? 'ar' : 'en';
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            
+            // Toggle RTL class
+            if (newLang === 'ar') {
+                body.classList.add('rtl');
+                body.setAttribute('dir', 'rtl');
+                body.setAttribute('lang', 'ar');
+                document.getElementById('currentLang').textContent = 'EN'; // Show EN when in Arabic (to switch to English)
+                
+                // Store original content before translating
+                storeOriginalContent();
+                
+                // Apply translations
+                applyTranslations('ar');
+            } else {
+                body.classList.remove('rtl');
+                body.setAttribute('dir', 'ltr');
+                body.setAttribute('lang', 'en');
+                document.getElementById('currentLang').textContent = 'AR'; // Show AR when in English (to switch to Arabic)
+                
+                // Restore original English content
+                restoreOriginalContent();
+                
+                // Re-apply English translations for nav/buttons
+                applyTranslations('en');
+            }
+            
+            // Save preference
+            localStorage.setItem('preferredLanguage', newLang);
+            
+            // Track language change in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'language_change', {
+                    'event_category': 'engagement',
+                    'event_label': newLang,
+                    'value': 1
+                });
+            }
+        }
+
+        // Apply Translations Function
+        function applyTranslations(lang) {
+            const t = translations[lang];
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (t[key]) {
+                    const icon = element.querySelector('i');
+                    if (icon) {
+                        const iconHTML = icon.outerHTML;
+                        element.innerHTML = iconHTML + ' ' + t[key];
+                    } else {
+                        element.textContent = t[key];
+                    }
+                }
+            });
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const navTexts = ['home', 'aboutMe', 'education', 'experience', 'skills', 'services', 'projects', 'testimonials', 'contact'];
+            navLinks.forEach((link, index) => {
+                if (navTexts[index]) {
+                    link.textContent = t[navTexts[index]];
+                }
+            });
+            
+            // Update sidebar profile
+            const profileTitle = document.querySelector('.profile-title');
+            if (profileTitle) profileTitle.textContent = t.seniorManager;
+            
+            // Update hero section
+            const heroH4 = document.querySelector('.hero-content h4');
+            if (heroH4) heroH4.textContent = t.hello;
+            
+            const heroH1Span = document.querySelector('.hero-content h1 span');
+            if (heroH1Span) heroH1Span.textContent = t.name;
+            
+            const heroH3 = document.querySelector('.hero-subtitle');
+            if (heroH3) heroH3.textContent = t.heroTitle;
+            
+            const heroDesc = document.querySelector('.hero-desc');
+            if (heroDesc) heroDesc.textContent = t.heroDesc;
+            
+            // Update hero buttons
+            const hireMeBtn = document.querySelector('.hero-content .btn-primary-custom');
+            if (hireMeBtn) hireMeBtn.innerHTML = `<i class="fas fa-envelope"></i> ${t.hireMe}`;
+            
+            const downloadCVBtn = document.querySelector('.hero-content .btn-outline-custom');
+            if (downloadCVBtn) downloadCVBtn.innerHTML = `<i class="fas fa-download"></i> ${t.downloadCV}`;
+            
+            // Update About section
+            const aboutCategory = document.querySelector('.about-section .section-title span');
+            if (aboutCategory) aboutCategory.textContent = t.aboutCategory;
+            
+            const aboutTitle = document.querySelector('.about-section .section-title h2');
+            if (aboutTitle) aboutTitle.textContent = t.aboutTitle;
+            
+            const aboutContactBtn = document.querySelector('.about-section .btn-primary-custom');
+            if (aboutContactBtn) aboutContactBtn.innerHTML = `<i class="fas fa-envelope"></i> ${t.contactMe}`;
+            
+            const aboutDownloadBtn = document.querySelector('.about-section .btn-outline-custom');
+            if (aboutDownloadBtn) aboutDownloadBtn.innerHTML = `<i class="fas fa-download"></i> ${t.downloadCV}`;
+            
+            // Update Education section
+            const educationCategory = document.querySelector('.timeline-section:nth-of-type(2) .section-title span');
+            if (educationCategory) educationCategory.textContent = t.educationCategory;
+            
+            const educationTitle = document.querySelector('.timeline-section:nth-of-type(2) .section-title h2');
+            if (educationTitle) educationTitle.textContent = t.educationTitle;
+            
+            // Update Experience section
+            const experienceCategory = document.querySelector('.timeline-section:nth-of-type(3) .section-title span');
+            if (experienceCategory) experienceCategory.textContent = t.experienceCategory;
+            
+            const experienceTitle = document.querySelector('.timeline-section:nth-of-type(3) .section-title h2');
+            if (experienceTitle) experienceTitle.textContent = t.experienceTitle;
+            
+            // Update Skills section
+            const skillsCategory = document.querySelector('.skills-section .section-title span');
+            if (skillsCategory) skillsCategory.textContent = t.skillsCategory;
+            
+            const skillsTitle = document.querySelector('.skills-section .section-title h2');
+            if (skillsTitle) skillsTitle.textContent = t.skillsTitle;
+            
+            // Update Services section
+            const servicesCategory = document.querySelector('.services-section .section-title span');
+            if (servicesCategory) servicesCategory.textContent = t.servicesCategory;
+            
+            const servicesTitle = document.querySelector('.services-section .section-title h2');
+            if (servicesTitle) servicesTitle.textContent = t.servicesTitle;
+            
+            // Update Projects section
+            const projectsCategory = document.querySelector('.projects-section .section-title span');
+            if (projectsCategory) projectsCategory.textContent = t.projectsCategory;
+            
+            const projectsTitle = document.querySelector('.projects-section .section-title h2');
+            if (projectsTitle) projectsTitle.textContent = t.projectsTitle;
+            
+            // Update Testimonials section
+            const testimonialsCategory = document.querySelector('.testimonials-section .section-title span');
+            if (testimonialsCategory) testimonialsCategory.textContent = t.testimonialsCategory;
+            
+            const testimonialsTitle = document.querySelector('.testimonials-section .section-title h2');
+            if (testimonialsTitle) testimonialsTitle.textContent = t.testimonialsTitle;
+            
+            // Update Contact section
+            const contactCategory = document.querySelector('.contact-section .section-title span');
+            if (contactCategory) contactCategory.textContent = t.contactCategory;
+            
+            const contactTitle = document.querySelector('.contact-section .section-title h2');
+            if (contactTitle) contactTitle.textContent = t.contactTitle;
+            
+            const submitBtn = document.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.textContent = t.sendMessage;
+            
+            // Update Footer
+            const footerSections = document.querySelectorAll('.footer-section h4');
+            if (footerSections[0]) footerSections[0].textContent = t.about;
+            if (footerSections[1]) footerSections[1].textContent = t.quickLinks;
+            if (footerSections[2]) footerSections[2].textContent = t.servicesText;
+            if (footerSections[3]) footerSections[3].textContent = t.contactInfo;
+            
+            const footerAboutText = document.querySelector('.footer-section p');
+            if (footerAboutText) footerAboutText.textContent = t.footerAboutText;
+            
+            // Update footer links
+            const footerLinks = document.querySelectorAll('.footer-section:nth-child(2) ul li a');
+            if (footerLinks[0]) footerLinks[0].textContent = t.homeLink;
+            if (footerLinks[1]) footerLinks[1].textContent = t.aboutMeLink;
+            if (footerLinks[2]) footerLinks[2].textContent = t.experienceLink;
+            if (footerLinks[3]) footerLinks[3].textContent = t.projectsLink;
+            if (footerLinks[4]) footerLinks[4].textContent = t.contactLink;
+            
+            // Update footer services
+            const footerServices = document.querySelectorAll('.footer-section:nth-child(3) ul li a');
+            if (footerServices[0]) footerServices[0].textContent = t.projectManagement;
+            if (footerServices[1]) footerServices[1].textContent = t.mepDesign;
+            if (footerServices[2]) footerServices[2].textContent = t.budgetControl;
+            if (footerServices[3]) footerServices[3].textContent = t.qualityAssurance;
+            if (footerServices[4]) footerServices[4].textContent = t.teamLeadership;
+            
+            // Update copyright
+            const copyright = document.querySelector('.footer-bottom p');
+            if (copyright) copyright.textContent = t.copyright;
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'ar') {
+                // Don't auto-apply, wait for user to toggle
+                // Just update the button text
+                document.getElementById('currentLang').textContent = 'AR';
+            } else {
+                document.getElementById('currentLang').textContent = 'AR'; // Show AR when in English (default)
+            }
         });
 
         // Track CV Downloads with Google Analytics
