@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*~
+
+# Backup files
+*.bak
+*.backup
+*_backup_*
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+dist/
+build/
+node_modules/

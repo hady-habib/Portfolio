@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ehady.co/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block AI scrapers (optional - uncomment if you want to block them)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ChatGPT-User
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
