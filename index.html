@@ -101,18 +101,7 @@
         gtag('config', 'G-8WTLEH9H13');
     </script>
 
-    <!-- Google Translate Widget -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ar,en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Manual Translation System (No external dependencies) -->
 
     <style>
         :root {
@@ -1510,26 +1499,7 @@
             letter-spacing: 1px;
         }
 
-        /* Hide Google Translate Elements */
-        #google_translate_element {
-            display: none !important;
-        }
-
-        .goog-te-banner-frame {
-            display: none !important;
-        }
-
-        .goog-te-balloon-frame {
-            display: none !important;
-        }
-
-        body {
-            top: 0 !important;
-        }
-
-        .skiptranslate {
-            display: none !important;
-        }
+        /* Manual Translation System - No external dependencies */
 
         /* Print Styles */
         @media print {
@@ -1786,9 +1756,6 @@
 </head>
 
 <body>
-    <!-- Google Translate Widget Container (Hidden) -->
-    <div id="google_translate_element"></div>
-
     <!-- Skip to Content Link for Accessibility -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
@@ -2856,26 +2823,30 @@
             });
         }
 
-        // Language Toggle Function (Using Google Translate)
+        // Language Toggle Function
         function toggleLanguage() {
             const body = document.body;
             const currentLang = body.getAttribute('lang') || 'en';
             const newLang = currentLang === 'en' ? 'ar' : 'en';
             
-            // Update button text immediately
+            // Update button text
             document.getElementById('currentLang').textContent = newLang === 'ar' ? 'EN' : 'AR';
             
-            // Find and trigger Google Translate
-            setTimeout(() => {
-                const select = document.querySelector('.goog-te-combo');
-                if (select) {
-                    select.value = newLang;
-                    select.dispatchEvent(new Event('change'));
-                }
-            }, 100);
-            
-            // Set body language
+            // Set body language and direction
             body.setAttribute('lang', newLang);
+            body.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Apply RTL/LTR styling
+            if (newLang === 'ar') {
+                body.classList.add('rtl');
+                body.classList.remove('ltr');
+            } else {
+                body.classList.add('ltr');
+                body.classList.remove('rtl');
+            }
+            
+            // Apply translations
+            applyTranslations(newLang);
             
             // Save preference
             localStorage.setItem('preferredLanguage', newLang);
@@ -3037,31 +3008,29 @@
             if (copyright) copyright.textContent = t.copyright;
         }
 
-        // Load saved language preference and hide Google Translate widget
+        // Load saved language preference on page load
         window.addEventListener('load', function() {
-            // Hide Google Translate widget UI
-            setTimeout(() => {
-                const googleTranslateWidget = document.getElementById('google_translate_element');
-                if (googleTranslateWidget) {
-                    googleTranslateWidget.style.display = 'none';
-                }
-            }, 1000);
-            
             // Load saved language
-            const savedLang = localStorage.getItem('preferredLanguage');
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            const body = document.body;
+            
+            // Set initial language and direction
+            body.setAttribute('lang', savedLang);
+            body.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Apply RTL/LTR styling
             if (savedLang === 'ar') {
-                document.body.setAttribute('lang', 'ar');
+                body.classList.add('rtl');
+                body.classList.remove('ltr');
                 document.getElementById('currentLang').textContent = 'EN';
-                setTimeout(() => {
-                    const select = document.querySelector('.goog-te-combo');
-                    if (select) {
-                        select.value = 'ar';
-                        select.dispatchEvent(new Event('change'));
-                    }
-                }, 1500);
             } else {
+                body.classList.add('ltr');
+                body.classList.remove('rtl');
                 document.getElementById('currentLang').textContent = 'AR';
             }
+            
+            // Apply translations
+            applyTranslations(savedLang);
         });
 
         // Track CV Downloads with Google Analytics
