@@ -153,6 +153,8 @@
             min-height: 100vh;
             height: 100%;
             transition: direction 0.3s ease;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* Arabic Font */
@@ -188,6 +190,8 @@
         body.rtl {
             direction: rtl;
             text-align: right;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         body.rtl .sidebar {
@@ -201,6 +205,7 @@
         body.rtl .main-content {
             margin-left: 0;
             margin-right: 280px;
+            max-width: calc(100vw - 280px);
         }
 
         body.rtl .footer {
@@ -442,6 +447,8 @@
             margin-left: 280px;
             padding: 0;
             background: #ffffff;
+            overflow-x: hidden;
+            max-width: calc(100vw - 280px);
         }
 
         /* Hero Section */
@@ -2069,6 +2076,7 @@
 
             .main-content {
                 margin-left: 0;
+                max-width: 100vw;
             }
 
             .footer,
@@ -2107,6 +2115,7 @@
             
             body.rtl .main-content {
                 margin-right: 0;
+                max-width: 100vw;
             }
             
             body.rtl .footer,
@@ -2139,6 +2148,55 @@
             body.rtl .btn-outline-custom {
                 margin-left: 15px;
                 margin-right: 0;
+            }
+            
+            /* Ensure grid columns stack properly on mobile */
+            .row > [class*='col-'] {
+                margin-bottom: 20px;
+            }
+            
+            /* Fix gallery spacing on mobile */
+            .gallery-item {
+                margin-bottom: 20px;
+            }
+            
+            /* Testimonial cards mobile spacing */
+            .testimonial-card {
+                margin-bottom: 30px;
+            }
+            
+            /* Certification cards mobile */
+            .certification-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Project modal responsive */
+            .project-details {
+                padding: 20px;
+            }
+        }
+        
+        /* Tablet Devices */
+        @media (min-width: 577px) and (max-width: 991px) {
+            .hero-content h1 {
+                font-size: 38px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .btn-primary-custom,
+            .btn-outline-custom {
+                padding: 14px 30px;
+            }
+            
+            body.rtl .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            body.rtl .section-title h2 {
+                font-size: 30px;
             }
         }
         
@@ -2186,6 +2244,66 @@
             body.rtl .menu-toggle {
                 right: 15px;
                 left: auto;
+            }
+            
+            /* Additional Mobile Optimizations */
+            .btn-primary-custom,
+            .btn-outline-custom {
+                padding: 12px 25px;
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+                margin: 10px 0;
+            }
+            
+            .timeline-item {
+                padding: 20px;
+            }
+            
+            .service-card,
+            .project-card,
+            .achievement-card {
+                padding: 25px 20px;
+            }
+            
+            .contact-info-box {
+                margin-bottom: 20px;
+            }
+            
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            /* Ensure images don't overflow */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Fix table overflow in About section */
+            .about-info table {
+                font-size: 14px;
+            }
+            
+            .about-info table td {
+                padding: 8px 5px;
+                word-break: break-word;
+            }
+            
+            /* RTL Button fixes for small screens */
+            body.rtl .btn-primary-custom,
+            body.rtl .btn-outline-custom {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            body.rtl .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            body.rtl .section-title h2 {
+                font-size: 24px;
             }
         }
 
@@ -4315,7 +4433,7 @@
             
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-menu a');
-            const navTexts = ['home', 'aboutMe', 'experience', 'education', 'skills', 'services', 'projects', 'gallery', 'testimonials', 'contact'];
+            const navTexts = ['home', 'aboutMe', 'experience', 'education', 'skills', 'certifications', 'services', 'projects', 'gallery', 'testimonials', 'contact'];
             navLinks.forEach((link, index) => {
                 if (navTexts[index]) {
                     link.textContent = t[navTexts[index]];
