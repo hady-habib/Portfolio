@@ -152,9 +152,32 @@
         }
 
         /* Arabic Font */
-        body[lang="ar"],
-        body[lang="ar"] * {
-            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif !important;
+        body[lang="ar"] {
+            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
+        }
+        
+        body[lang="ar"] *:not(i):not(.fa):not(.fas):not(.fab):not(.far):not(.fal) {
+            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
+        }
+        
+        /* Keep Font Awesome icons working in both languages */
+        i.fa,
+        i.fas,
+        i.fab,
+        i.far,
+        i.fal,
+        .fa,
+        .fas,
+        .fab,
+        .far,
+        .fal {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands' !important;
+            font-weight: 900 !important;
+        }
+        
+        i.fab {
+            font-family: 'Font Awesome 6 Brands' !important;
+            font-weight: 400 !important;
         }
 
         /* RTL Support for Arabic */
@@ -224,6 +247,62 @@
         body.rtl .service-card,
         body.rtl .project-card {
             text-align: right;
+        }
+
+        body.rtl .achievement-card {
+            text-align: center;
+        }
+
+        body.rtl .achievements-section {
+            margin-right: 280px;
+            margin-left: 0;
+        }
+
+        body.rtl .testimonials-section {
+            margin-right: 280px;
+            margin-left: 0;
+        }
+
+        body.rtl .testimonial-card {
+            text-align: right;
+        }
+
+        body.rtl .testimonial-card::before {
+            left: auto;
+            right: 30px;
+        }
+
+        body.rtl .testimonial-author {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        body.rtl .testimonial-author-info {
+            text-align: right;
+        }
+
+        body.rtl .testimonial-rating {
+            text-align: right;
+        }
+
+        body.rtl .testimonials-section .section-title span,
+        body.rtl .testimonials-section .section-title h2,
+        body.rtl .testimonials-section .section-title h2::after {
+            color: #ffffff !important;
+        }
+
+        /* RTL Support for Services Section - Center alignment */
+        body.rtl .services-section .service-card {
+            text-align: center !important;
+        }
+
+        body.rtl .services-section .service-card i {
+            margin: 0 auto !important;
+        }
+
+        body.rtl .services-section .service-card h4,
+        body.rtl .services-section .service-card p {
+            text-align: center !important;
         }
 
         /* Visually Hidden Class for Screen Readers */
@@ -1277,8 +1356,13 @@
 
         /* Testimonials */
         .testimonials-section {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
             margin-left: 280px;
+        }
+        
+        .testimonials-section .section-title span,
+        .testimonials-section .section-title h2 {
+            color: #ffffff !important;
         }
 
         .testimonial-card {
@@ -1566,6 +1650,100 @@
             .section-title h2 {
                 font-size: 36px;
             }
+            
+            /* RTL Mobile Fixes */
+            body.rtl .sidebar {
+                transform: translateX(100%);
+                left: auto;
+                right: 0;
+            }
+            
+            body.rtl .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            body.rtl .main-content {
+                margin-right: 0;
+            }
+            
+            body.rtl .footer,
+            body.rtl .achievements-section,
+            body.rtl .testimonials-section {
+                margin-right: 0;
+            }
+            
+            body.rtl .menu-toggle {
+                left: auto;
+                right: 20px;
+            }
+            
+            body.rtl .language-toggle {
+                right: auto;
+                left: 20px;
+            }
+            
+            /* Mobile Text Alignment for RTL */
+            body.rtl .hero-content,
+            body.rtl .about-content,
+            body.rtl .timeline-item,
+            body.rtl .service-card,
+            body.rtl .project-card,
+            body.rtl .testimonial-card {
+                text-align: right;
+            }
+            
+            body.rtl .btn-primary-custom,
+            body.rtl .btn-outline-custom {
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+        
+        /* Extra Small Mobile Devices */
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .hero-section,
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .stat-item h3 {
+                font-size: 36px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .language-toggle {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            /* RTL Mobile Small Screen Fixes */
+            body.rtl .language-toggle {
+                left: 15px;
+                right: auto;
+            }
+            
+            body.rtl .menu-toggle {
+                right: 15px;
+                left: auto;
+            }
         }
 
         /* Loading Animation */
@@ -1800,8 +1978,8 @@
         <ul class="nav-menu">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About Me</a></li>
-            <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -1927,36 +2105,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="section timeline-section" id="education">
-            <div class="container-fluid">
-                <div class="section-title">
-                    <span>Learning</span>
-                    <h2>My Education</h2>
-                </div>
-
-                <div class="timeline-year">
-                    <h2>2011</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="timeline-item">
-                            <span class="badge-custom">Graduated</span>
-                            <h4>Bachelor's in Mechanical Power Engineering</h4>
-                            <h5>Shoubra Faculty of Engineering, Egypt</h5>
-                            <p>
-                                Specialized in HVAC systems, thermodynamics, fluid mechanics, and mechanical design.
-                                Strong foundation in engineering principles and practical applications for large-scale
-                                construction projects. Developed expertise in energy systems, heat transfer, and
-                                mechanical equipment design.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Experience Section -->
         <section class="section timeline-section" id="experience" style="background: #fff;">
             <div class="container-fluid">
@@ -1976,10 +2124,11 @@
                             <h4>Senior Construction Manager</h4>
                             <h5>Sharqawi Co. · Aramco Dammam Stadium</h5>
                             <ul>
-                                <li>Led MEP operations on major stadium project (SAR 280M+ budget)</li>
-                                <li>Enforced Aramco/FIFA standards and quality protocols</li>
-                                <li>Improved milestone reliability through structured reporting</li>
-                                <li>Coordinated cross-functional teams for on-time delivery</li>
+                                <li>Lead plumbing and HVAC operations for the FIFA-compliant Aramco Dammam Stadium project (SAR 280M+), ensuring adherence to Aramco and FIFA technical standards</li>
+                                <li>Manage specialized plumbing and HVAC scope, coordinating with electrical and firefighting teams to achieve seamless MEP integration</li>
+                                <li>Oversee plumbing and HVAC budget allocation, procurement strategies, and resource optimization to maximize cost-efficiency and project value</li>
+                                <li>Conduct technical reviews of HVAC designs and plumbing layouts, ensuring compliance with energy efficiency requirements and Saudi Building Code</li>
+                                <li>Chair coordination meetings with SAPMT, SAPID, SAHSE, Lean Fit-Out teams; organize Toolbox Talks and technical site walkthroughs focused on plumbing/HVAC installation</li>
                             </ul>
                         </div>
                     </div>
@@ -1994,12 +2143,12 @@
                         <div class="timeline-item">
                             <span class="badge-custom">Sep 2023 — May 2024</span>
                             <h4>Construction Manager</h4>
-                            <h5>First Fix · Royal Project, Riyadh</h5>
+                            <h5>First Fix · Riyadh, KSA</h5>
                             <ul>
-                                <li>Managed mechanical scope for royal project (SAR 420M+)</li>
-                                <li>Oversight of procurement and resource optimization</li>
-                                <li>Built high-performance teams for critical deliverables</li>
-                                <li>Handled stringent approval processes and quality requirements</li>
+                                <li>Spearheaded operations for a prestigious royal construction project, leading cross-functional teams to exceed project milestones and meet stringent quality and safety standards</li>
+                                <li>Oversaw a budget exceeding SAR 420M, optimizing cost efficiency through strategic procurement, resource allocation, and process improvements</li>
+                                <li>Cultivated a high-performing team culture, delivering guidance and mentorship to ensure peak productivity and professional growth within the team</li>
+                                <li>Established and maintained open communication with key stakeholders, delivering concise reports and strategic insights to facilitate informed decision-making</li>
                             </ul>
                         </div>
                     </div>
@@ -2034,6 +2183,56 @@
                                 <li>Managed plumbing, HVAC, and firefighting projects</li>
                                 <li>Developed engineering calculators for design optimization</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-year">
+                    <h2>2008</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="timeline-item">
+                            <span class="badge-custom">Jul 2008 — Jul 2016</span>
+                            <h4>Office/Field Engineer</h4>
+                            <h5>Abdul-Aziz Omran Al-Omran · Dammam</h5>
+                            <ul>
+                                <li>Conducted comprehensive reviews of mechanical designs, cost estimates, and technical proposals</li>
+                                <li>Supported site operations by supervising installation and troubleshooting</li>
+                                <li>Consistently delivered projects within time and quality constraints</li>
+                                <li>Ensured precision and adherence to project specifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section timeline-section" id="education">
+            <div class="container-fluid">
+                <div class="section-title">
+                    <span>Learning</span>
+                    <h2>My Education</h2>
+                </div>
+
+                <div class="timeline-year">
+                    <h2>2011</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="timeline-item">
+                            <span class="badge-custom">Graduated</span>
+                            <h4>Bachelor's in Mechanical Power Engineering</h4>
+                            <h5>Shoubra Faculty of Engineering, Egypt</h5>
+                            <p>
+                                Specialized in HVAC systems, thermodynamics, fluid mechanics, and mechanical design.
+                                Strong foundation in engineering principles and practical applications for large-scale
+                                construction projects. Developed expertise in energy systems, heat transfer, and
+                                mechanical equipment design.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -2438,8 +2637,8 @@
                                 and commitment to quality standards ensured our stadium project was delivered on time
                                 and within budget. His technical knowledge and leadership skills are outstanding."</p>
                             <div class="testimonial-author">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%231a1a1a' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ESM%3C/text%3E%3C/svg%3E"
-                                    alt="Client">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ESM%3C/text%3E%3C/svg%3E"
+                                    alt="Senior Project Manager">
                                 <div class="testimonial-author-info">
                                     <h5>Senior Project Manager</h5>
                                     <span>Aramco Stadium Project</span>
@@ -2464,7 +2663,7 @@
                                 deadlines were impressive. He consistently delivered high-quality results."</p>
                             <div class="testimonial-author">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3EPD%3C/text%3E%3C/svg%3E"
-                                    alt="Client">
+                                    alt="Project Director">
                                 <div class="testimonial-author-info">
                                     <h5>Project Director</h5>
                                     <span>First Fix - Royal Project</span>
@@ -2489,8 +2688,8 @@
                                 engineering challenges and his dedication to team development make him an invaluable
                                 asset."</p>
                             <div class="testimonial-author">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%232a2a2a' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3EGM%3C/text%3E%3C/svg%3E"
-                                    alt="Client">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3EGM%3C/text%3E%3C/svg%3E"
+                                    alt="General Manager">
                                 <div class="testimonial-author-info">
                                     <h5>General Manager</h5>
                                     <span>Al-Ajmy Establishment</span>
@@ -2510,13 +2709,13 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p>"Over the years, Abdel has consistently demonstrated exceptional project management
+                            <p>"Over the years, Abdel Hady has consistently demonstrated exceptional project management
                                 skills and technical proficiency. His ability to manage multiple projects simultaneously
                                 while maintaining high quality standards is remarkable. Highly recommended
                                 professional."</p>
                             <div class="testimonial-author">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%234a4a4a' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ECE%3C/text%3E%3C/svg%3E"
-                                    alt="Client">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ECE%3C/text%3E%3C/svg%3E"
+                                    alt="Chief Engineer">
                                 <div class="testimonial-author-info">
                                     <h5>Chief Engineer</h5>
                                     <span>Fanar Arabian International</span>
@@ -2652,18 +2851,34 @@
                 // Education Section
                 educationCategory: "Education",
                 educationTitle: "My Academic Background",
+                educationCategory2: "Learning",
+                educationTitle2: "My Education",
                 
                 // Experience Section
                 experienceCategory: "Experience",
                 experienceTitle: "My Professional Journey",
+                experienceCategory2: "Involvement",
+                experienceTitle2: "My Experience",
                 
                 // Skills Section
                 skillsCategory: "Skills",
                 skillsTitle: "My Professional Skills",
+                skillsCategory2: "Core Competencies",
+                skillsTitle2: "Professional Skills",
+                skill1: "Project Management",
+                skill2: "MEP Design & Execution",
+                skill3: "Budget & Cost Control",
+                skill4: "HVAC Systems",
+                skill5: "Quality Assurance (QA/QC)",
+                skill6: "Team Leadership",
+                skill7: "AutoCAD & HAP Software",
+                skill8: "Standards Compliance (Aramco/FIFA)",
                 
                 // Services Section
                 servicesCategory: "Services",
                 servicesTitle: "What I Do",
+                servicesCategory2: "Take A Look",
+                servicesTitle2: "My Services",
                 
                 // Projects Section
                 projectsCategory: "Projects",
@@ -2737,53 +2952,167 @@
                 // Experience Section - 2025
                 involvement: "Involvement",
                 year2025: "2025",
-                currentJob: "Apr 2025 — Present",
+                currentJob: "April 2025 — Current",
                 seniorConstructionMgr: "Senior Construction Manager",
-                sharqawiCompany: "Sharqawi Co. · Aramco Dammam Stadium",
-                sharqawiPoint1: "Led MEP operations on major stadium project (SAR 280M+ budget)",
-                sharqawiPoint2: "Enforced Aramco/FIFA standards and quality protocols",
-                sharqawiPoint3: "Improved milestone reliability through structured reporting",
-                sharqawiPoint4: "Coordinated cross-functional teams for on-time delivery",
+                sharqawiCompany: "Sharqawi co. | Dammam, KSA",
+                sharqawiPoint1: "Lead plumbing and HVAC operations for the FIFA-compliant Aramco Dammam Stadium project (SAR 280M+), ensuring adherence to Aramco and FIFA technical standards",
+                sharqawiPoint2: "Manage specialized plumbing and HVAC scope, coordinating with electrical and firefighting teams to achieve seamless MEP integration",
+                sharqawiPoint3: "Oversee plumbing and HVAC budget allocation, procurement strategies, and resource optimization to maximize cost-efficiency and project value",
+                sharqawiPoint4: "Conduct technical reviews of HVAC designs and plumbing layouts, ensuring compliance with energy efficiency requirements and Saudi Building Code",
+                sharqawiPoint5: "Chair coordination meetings with SAPMT, SAPID, SAHSE, Lean Fit-Out teams; organize Toolbox Talks and technical site walkthroughs focused on plumbing/HVAC installation",
                 
                 // Experience Section - 2023
                 year2023: "2023",
-                moharramJob: "Sep 2023 — Mar 2025",
+                firstFixJob: "September 2023 — May 2024",
                 constructionMgr: "Construction Manager",
-                moharramCompany: "Moharram Fouad · Multiple Aramco Projects",
-                moharramPoint1: "Managed MEP installations across multiple Aramco projects",
-                moharramPoint2: "Ensured compliance with Aramco specifications and safety standards",
-                moharramPoint3: "Led site teams and coordinated with subcontractors",
-                moharramPoint4: "Delivered 34+ projects with 95% client satisfaction",
+                firstFixCompany: "First Fix | Riyadh, KSA",
+                firstFixPoint1: "Spearheaded operations for a prestigious royal construction project, leading cross-functional teams to exceed project milestones and meet stringent quality and safety standards",
+                firstFixPoint2: "Oversaw a budget exceeding SAR 420M, optimizing cost efficiency through strategic procurement, resource allocation, and process improvements",
+                firstFixPoint3: "Cultivated a high-performing team culture, delivering guidance and mentorship to ensure peak productivity and professional growth within the team",
+                firstFixPoint4: "Established and maintained open communication with key stakeholders, delivering concise reports and strategic insights to facilitate informed decision-making",
                 
-                // Experience Section - 2022
-                year2022: "2022",
-                bnccJob: "Nov 2022 — Aug 2023",
-                mepManager: "MEP Manager",
-                bnccCompany: "BNCC (BUKHAMSEEN) · Royal Palace Project (SAR 165M)",
-                bnccPoint1: "Led MEP design and execution for high-profile royal palace project",
-                bnccPoint2: "Managed budget of SAR 165M+ and ensured quality standards",
-                bnccPoint3: "Coordinated with architects and consultants for seamless execution",
-                bnccPoint4: "Delivered project within timeline while maintaining exceptional standards",
+                // Experience Section - 2021
+                year2021: "2021",
+                alajmyJob: "July 2021 — August 2023",
+                mechEngManager: "Mechanical Engineering Manager",
+                alajmyCompany: "Al-Ajmy Est. | Khobar, KSA",
+                alajmyPoint1: "Led the mechanical department, overseeing all stages of project planning, execution, and quality control",
+                alajmyPoint2: "Fostered innovation by implementing cutting-edge mechanical solutions, improving department efficiency by 18%",
+                alajmyPoint3: "Spearheaded technical and financial proposal development, enhancing project acquisition rate by 25%",
+                alajmyPoint4: "Maintained rigorous safety standards across all projects and teams",
                 
-                // Experience Section - 2018
-                year2018: "2018",
-                alharbiJob: "Jan 2018 — Oct 2022",
-                seniorMEPEngineer: "Senior MEP Engineer",
-                alharbiCompany: "Alharbi Contracting · Commercial & Residential Projects",
-                alharbiPoint1: "Designed and supervised MEP systems for multiple developments",
-                alharbiPoint2: "Managed project budgets and timelines effectively",
-                alharbiPoint3: "Ensured compliance with local building codes and standards",
-                alharbiPoint4: "Built strong relationships with clients and stakeholders",
+                // Experience Section - 2016
+                year2016: "2016",
+                fanarJob: "August 2016 — June 2021",
+                fanarMechEngManager: "Mechanical Engineering Manager",
+                fanarCompany: "Fanar Arabian International | Dammam, KSA",
+                fanarPoint1: "Directed over 34 large-scale mechanical engineering projects, including plumbing, HVAC, and firefighting systems",
+                fanarPoint2: "Pioneered improvements in project execution by implementing advanced software tools",
+                fanarPoint3: "Collaborated with clients and senior management to align project deliverables, achieving 95% satisfaction rating",
+                fanarPoint4: "Enhanced team capabilities through regular training and mentorship, increasing project efficiency by 20%",
                 
-                // Experience Section - 2011
-                year2011: "2011",
-                earlyCareerJob: "2011 — 2017",
-                mepEngineer: "MEP Engineer",
-                earlyCareerCompany: "Various Companies · Egypt & Saudi Arabia",
-                earlyCareerPoint1: "Gained foundational experience in MEP design and execution",
-                earlyCareerPoint2: "Worked on residential, commercial, and infrastructure projects",
-                earlyCareerPoint3: "Developed technical and management skills",
-                earlyCareerPoint4: "Built expertise in HVAC, electrical, and plumbing systems"
+                // Experience Section - 2008
+                year2008: "2008",
+                omranJob: "July 2008 — July 2016",
+                officeFieldEngineer: "Office/Field Engineer",
+                omranCompany: "Abdul-Aziz Omran Al-Omran | Dammam, KSA",
+                omranPoint1: "Conducted comprehensive reviews of mechanical designs, cost estimates, and technical proposals",
+                omranPoint2: "Supported site operations by supervising installation and troubleshooting",
+                omranPoint3: "Consistently delivered projects within time and quality constraints",
+                omranPoint4: "Ensured precision and adherence to project specifications in all deliverables",
+                
+                // Skills Section - keep English names
+                skill1: "Project Management",
+                skill2: "MEP Design & Execution",
+                skill3: "Budget & Cost Control",
+                skill4: "Quality Assurance (QA/QC)",
+                skill5: "Team Leadership",
+                skill6: "AutoCAD & HAP Software",
+                skill7: "Standards Compliance (Aramco/FIFA)",
+                skill8: "HVAC Systems",
+                
+                // Services Section
+                service1Title: "PROJECT LEADERSHIP",
+                service1Desc: "Expert management of large-scale MEP projects with budgets exceeding SAR 700M. Team coordination and stakeholder management excellence.",
+                service2Title: "BUDGET CONTROL",
+                service2Desc: "Proven track record in cost optimization and financial management. Delivering projects within budget while maintaining quality.",
+                service3Title: "MEP EXECUTION",
+                service3Desc: "Expert in HVAC, plumbing, and firefighting systems. Proficient in AutoCAD, HAP, and MEP design software.",
+                service4Title: "QUALITY ASSURANCE",
+                service4Desc: "Enforce Aramco, FIFA, ASHRAE, and NFPA standards. Robust QA/QC processes for project excellence.",
+                service5Title: "DOCUMENTATION",
+                service5Desc: "Structured documentation and revision control. Improved reporting cadence for stakeholders and audits.",
+                service6Title: "TEAM BUILDING",
+                service6Desc: "Building high-performance teams across multiple projects. Increased efficiency by 18% through training.",
+                
+                // Projects Section
+                project1Title: "Aramco FIFA World Cup Stadium",
+                project1Badge1: "SAR 280M+",
+                project1Badge2: "Dammam, KSA",
+                project1Badge3: "Stadium",
+                project1Desc: "Managed all mechanical installations on major stadium project. Achieved full compliance with Aramco and FIFA standards.",
+                
+                project2Title: "Royal Project",
+                project2Badge1: "SAR 420M+",
+                project2Badge2: "Riyadh, KSA",
+                project2Badge3: "High Security",
+                project2Desc: "Managed mechanical scope and procurement for high-security royal project with stringent quality requirements.",
+                
+                project3Title: "Stadium Facility Manager",
+                project3Badge1: "Software Tool",
+                project3Badge2: "PM Platform",
+                project3Badge3: "",
+                project3Desc: "Developed modular bilingual PM platform for defensible reporting, revision control, and stakeholder clarity.",
+                
+                project4Title: "SiteSync Obstruction Tracker",
+                project4Badge1: "Field Tool",
+                project4Badge2: "35% Faster",
+                project4Badge3: "",
+                project4Desc: "Real-time obstruction capture system with photos, geo-tags, and timestamped evidence logs.",
+                
+                project5Title: "Daily Report Submission App",
+                project5Badge1: "Reporting",
+                project5Badge2: "Multi-Site",
+                project5Badge3: "",
+                project5Desc: "Field-first daily reporting application with CSV export functionality for faster approvals.",
+                
+                project6Title: "Engineering Calculators",
+                project6Badge1: "Technical Tools",
+                project6Badge2: "Regional Use",
+                project6Badge3: "",
+                project6Desc: "Published solar angles and water system calculators for accurate HVAC and plumbing design.",
+                
+                // Achievements Section
+                achievementsCategory: "Key Achievements",
+                achievementsTitle: "Professional Highlights",
+                achievement1Title: "700M+ SAR",
+                achievement1Desc: "Total project value managed across career",
+                achievement2Title: "34+ Projects",
+                achievement2Desc: "Successfully completed projects",
+                achievement3Title: "95% Satisfaction",
+                achievement3Desc: "Client satisfaction across 34+ completed projects",
+                achievement4Title: "FIFA Certified",
+                achievement4Desc: "Aramco & FIFA standards compliance expert",
+                achievement5Title: "Zero Incidents",
+                achievement5Desc: "Safety record on Aramco stadium project",
+                achievement6Title: "18% Efficiency",
+                achievement6Desc: "Team productivity increase through training",
+                achievement7Title: "On-Time Delivery",
+                achievement7Desc: "Consistent project completion within deadlines",
+                achievement8Title: "Budget Excellence",
+                achievement8Desc: "Delivered SAR 165M royal project within budget",
+                
+                // Testimonials Section
+                testimonialsCategory2: "Client Feedback",
+                testimonialsTitle2: "What People Say",
+                testimonial1Text: "Abdel Hady's expertise in MEP project management is exceptional. His attention to detail and commitment to quality standards ensured our stadium project was delivered on time and within budget. His technical knowledge and leadership skills are outstanding.",
+                testimonial1Name: "Senior Project Manager",
+                testimonial1Company: "Aramco Stadium Project",
+                
+                testimonial2Text: "Working with Abdel Hady on the royal project was a pleasure. His professionalism, technical expertise, and ability to coordinate complex mechanical systems under tight deadlines were impressive. He consistently delivered high-quality results.",
+                testimonial2Name: "Project Director",
+                testimonial2Company: "First Fix - Royal Project",
+                
+                testimonial3Text: "Abdel's implementation of project management tools and reporting systems significantly improved our operational efficiency. His innovative approach to solving complex engineering challenges and his dedication to team development make him an invaluable asset.",
+                testimonial3Name: "General Manager",
+                testimonial3Company: "Al-Ajmy Establishment",
+                
+                testimonial4Text: "Over the years, Abdel Hady has consistently demonstrated exceptional project management skills and technical proficiency. His ability to manage multiple projects simultaneously while maintaining high quality standards is remarkable. Highly recommended professional.",
+                testimonial4Name: "Chief Engineer",
+                testimonial4Company: "Fanar Arabian International",
+                
+                // Contact Section
+                contactCategory2: "Get In Touch",
+                contactTitle2: "Contact Me",
+                linkedinLabel: "LINKEDIN",
+                contactUsLabel: "CONTACT US",
+                emailLabel: "EMAIL US",
+                locationLabel: "LOCATION",
+                locationValue2: "Dammam\nKingdom of Saudi Arabia",
+                namePlaceholder: "* Your Name",
+                emailPlaceholder: "* Your Email",
+                subjectPlaceholder: "Subject",
+                messagePlaceholder: "* Your Message"
             },
             ar: {
                 // Navigation
@@ -2816,18 +3145,34 @@
                 // Education Section
                 educationCategory: "التعليم",
                 educationTitle: "خلفيتي الأكاديمية",
+                educationCategory2: "التعلم",
+                educationTitle2: "تعليمي",
                 
                 // Experience Section
                 experienceCategory: "الخبرة",
                 experienceTitle: "رحلتي المهنية",
+                experienceCategory2: "المشاركة",
+                experienceTitle2: "خبرتي",
                 
                 // Skills Section
                 skillsCategory: "المهارات",
                 skillsTitle: "مهاراتي المهنية",
+                skillsCategory2: "الكفاءات الأساسية",
+                skillsTitle2: "المهارات المهنية",
+                skill1: "إدارة المشاريع",
+                skill2: "تصميم وتنفيذ الأنظمة الكهروميكانيكية",
+                skill3: "التحكم في الميزانية والتكاليف",
+                skill4: "أنظمة التكييف والتهوية",
+                skill5: "ضمان الجودة (QA/QC)",
+                skill6: "قيادة الفريق",
+                skill7: "برامج AutoCAD و HAP",
+                skill8: "الامتثال للمعايير (أرامكو/فيفا)",
                 
                 // Services Section
                 servicesCategory: "الخدمات",
                 servicesTitle: "ما أقدمه",
+                servicesCategory2: "ألق نظرة",
+                servicesTitle2: "خدماتي",
                 
                 // Projects Section
                 projectsCategory: "المشاريع",
@@ -2903,51 +3248,165 @@
                 year2025: "2025",
                 currentJob: "أبريل 2025 — حتى الآن",
                 seniorConstructionMgr: "مدير إنشاءات أول",
-                sharqawiCompany: "شركة الشرقاوي · ملعب أرامكو الدمام",
-                sharqawiPoint1: "قيادة عمليات الأنظمة الكهروميكانيكية في مشروع ملعب كبير (ميزانية تزيد عن 280 مليون ريال سعودي)",
-                sharqawiPoint2: "تطبيق معايير أرامكو/الفيفا وبروتوكولات الجودة",
-                sharqawiPoint3: "تحسين موثوقية الإنجاز من خلال التقارير المنظمة",
-                sharqawiPoint4: "تنسيق الفرق متعددة الوظائف للتسليم في الوقت المحدد",
+                sharqawiCompany: "شركة الشرقاوي | الدمام، المملكة العربية السعودية",
+                sharqawiPoint1: "قيادة عمليات السباكة والتكييف لمشروع ملعب أرامكو الدمام المتوافق مع الفيفا (أكثر من 280 مليون ريال)، مع ضمان الالتزام بالمعايير الفنية لأرامكو والفيفا",
+                sharqawiPoint2: "إدارة نطاق السباكة والتكييف المتخصص، والتنسيق مع فرق الكهرباء ومكافحة الحريق لتحقيق التكامل السلس للأنظمة الكهروميكانيكية",
+                sharqawiPoint3: "الإشراف على تخصيص ميزانية السباكة والتكييف، واستراتيجيات الشراء، وتحسين الموارد لتعظيم كفاءة التكلفة وقيمة المشروع",
+                sharqawiPoint4: "إجراء المراجعات الفنية لتصاميم التكييف ومخططات السباكة، مع ضمان الامتثال لمتطلبات كفاءة الطاقة وكود البناء السعودي",
+                sharqawiPoint5: "رئاسة اجتماعات التنسيق مع SAPMT وSAPID وSAHSE وLean Fit-Out؛ تنظيم Toolbox Talks والجولات الفنية للموقع المركزة على تركيب السباكة والتكييف",
                 
                 // Experience Section - 2023
                 year2023: "2023",
-                moharramJob: "سبتمبر 2023 — مارس 2025",
+                firstFixJob: "سبتمبر 2023 — مايو 2024",
                 constructionMgr: "مدير إنشاءات",
-                moharramCompany: "محرم فؤاد · مشاريع أرامكو متعددة",
-                moharramPoint1: "إدارة تركيبات الأنظمة الكهروميكانيكية عبر مشاريع أرامكو متعددة",
-                moharramPoint2: "ضمان الامتثال لمواصفات أرامكو ومعايير السلامة",
-                moharramPoint3: "قيادة فرق الموقع والتنسيق مع المقاولين من الباطن",
-                moharramPoint4: "تسليم أكثر من 34 مشروعًا مع رضا عملاء 95٪",
+                firstFixCompany: "فيرست فيكس | الرياض، المملكة العربية السعودية",
+                firstFixPoint1: "قيادة العمليات لمشروع بناء ملكي مرموق، وقيادة الفرق متعددة الوظائف لتجاوز معالم المشروع وتلبية معايير الجودة والسلامة الصارمة",
+                firstFixPoint2: "إدارة ميزانية تتجاوز 420 مليون ريال سعودي، وتحسين كفاءة التكلفة من خلال المشتريات الاستراتيجية وتخصيص الموارد وتحسينات العمليات",
+                firstFixPoint3: "تنمية ثقافة فريق عالي الأداء، وتقديم التوجيه والإرشاد لضمان ذروة الإنتاجية والنمو المهني داخل الفريق",
+                firstFixPoint4: "إنشاء والحفاظ على التواصل المفتوح مع أصحاب المصلحة الرئيسيين، وتقديم تقارير موجزة ورؤى استراتيجية لتسهيل اتخاذ القرارات المستنيرة",
                 
-                // Experience Section - 2022
-                year2022: "2022",
-                bnccJob: "نوفمبر 2022 — أغسطس 2023",
-                mepManager: "مدير الأنظمة الكهروميكانيكية",
-                bnccCompany: "BNCC (بوخمسين) · مشروع القصر الملكي (165 مليون ريال سعودي)",
-                bnccPoint1: "قيادة تصميم وتنفيذ الأنظمة الكهروميكانيكية لمشروع قصر ملكي رفيع المستوى",
-                bnccPoint2: "إدارة ميزانية تزيد عن 165 مليون ريال سعودي وضمان معايير الجودة",
-                bnccPoint3: "التنسيق مع المهندسين المعماريين والاستشاريين للتنفيذ السلس",
-                bnccPoint4: "تسليم المشروع ضمن الجدول الزمني مع الحفاظ على معايير استثنائية",
+                // Experience Section - 2021
+                year2021: "2021",
+                alajmyJob: "يوليو 2021 — أغسطس 2023",
+                mechEngManager: "مدير الهندسة الميكانيكية",
+                alajmyCompany: "مؤسسة العجمي | الخبر، المملكة العربية السعودية",
+                alajmyPoint1: "قيادة قسم الميكانيكا، والإشراف على جميع مراحل تخطيط المشروع والتنفيذ ومراقبة الجودة",
+                alajmyPoint2: "تعزيز الابتكار من خلال تنفيذ حلول ميكانيكية متطورة، وتحسين كفاءة القسم بنسبة 18٪",
+                alajmyPoint3: "قيادة تطوير المقترحات الفنية والمالية، وتعزيز معدل الحصول على المشاريع بنسبة 25٪",
+                alajmyPoint4: "الحفاظ على معايير السلامة الصارمة عبر جميع المشاريع والفرق",
                 
-                // Experience Section - 2018
-                year2018: "2018",
-                alharbiJob: "يناير 2018 — أكتوبر 2022",
-                seniorMEPEngineer: "مهندس أنظمة كهروميكانيكية أول",
-                alharbiCompany: "مقاولات الحربي · مشاريع تجارية وسكنية",
-                alharbiPoint1: "تصميم والإشراف على أنظمة كهروميكانيكية لتطورات متعددة",
-                alharbiPoint2: "إدارة ميزانيات المشروع والجداول الزمنية بفعالية",
-                alharbiPoint3: "ضمان الامتثال لقوانين البناء المحلية والمعايير",
-                alharbiPoint4: "بناء علاقات قوية مع العملاء وأصحاب المصلحة",
+                // Experience Section - 2016
+                year2016: "2016",
+                fanarJob: "أغسطس 2016 — يونيو 2021",
+                fanarMechEngManager: "مدير الهندسة الميكانيكية",
+                fanarCompany: "فنار العربية الدولية | الدمام، المملكة العربية السعودية",
+                fanarPoint1: "إدارة أكثر من 34 مشروعًا هندسيًا ميكانيكيًا واسع النطاق، بما في ذلك السباكة والتكييف وأنظمة مكافحة الحرائق",
+                fanarPoint2: "ريادة التحسينات في تنفيذ المشروع من خلال تنفيذ أدوات برمجية متقدمة",
+                fanarPoint3: "التعاون مع العملاء والإدارة العليا لمواءمة مخرجات المشروع، وتحقيق تصنيف رضا 95٪",
+                fanarPoint4: "تعزيز قدرات الفريق من خلال التدريب والإرشاد المنتظم، وزيادة كفاءة المشروع بنسبة 20٪",
                 
-                // Experience Section - 2011
-                year2011: "2011",
-                earlyCareerJob: "2011 — 2017",
-                mepEngineer: "مهندس أنظمة كهروميكانيكية",
-                earlyCareerCompany: "شركات مختلفة · مصر والمملكة العربية السعودية",
-                earlyCareerPoint1: "اكتساب خبرة أساسية في تصميم وتنفيذ الأنظمة الكهروميكانيكية",
-                earlyCareerPoint2: "العمل على مشاريع سكنية وتجارية والبنية التحتية",
-                earlyCareerPoint3: "تطوير المهارات الفنية والإدارية",
-                earlyCareerPoint4: "بناء الخبرة في أنظمة التكييف والكهرباء والسباكة"
+                // Experience Section - 2008
+                year2008: "2008",
+                omranJob: "يوليو 2008 — يوليو 2016",
+                officeFieldEngineer: "مهندس مكتب/موقع",
+                omranCompany: "عبد العزيز عمران العمران | الدمام، المملكة العربية السعودية",
+                omranPoint1: "إجراء مراجعات شاملة للتصاميم الميكانيكية وتقديرات التكلفة والمقترحات الفنية",
+                omranPoint2: "دعم عمليات الموقع من خلال الإشراف على التركيب واستكشاف الأخطاء وإصلاحها",
+                omranPoint3: "تسليم المشاريع باستمرار ضمن قيود الوقت والجودة",
+                omranPoint4: "ضمان الدقة والالتزام بمواصفات المشروع في جميع المخرجات",
+                
+                // Skills Section - Arabic translations
+                skill1: "إدارة المشاريع",
+                skill2: "تصميم وتنفيذ الأنظمة الكهروميكانيكية",
+                skill3: "التحكم في الميزانية والتكاليف",
+                skill4: "ضمان الجودة",
+                skill5: "قيادة الفريق",
+                skill6: "برامج أوتوكاد وHAP",
+                skill7: "الامتثال للمعايير (أرامكو/فيفا)",
+                skill8: "أنظمة التكييف",
+                
+                // Services Section
+                service1Title: "قيادة المشاريع",
+                service1Desc: "إدارة متخصصة لمشاريع كهروميكانيكية كبيرة بميزانيات تتجاوز 700 مليون ريال سعودي. تميز في تنسيق الفرق وإدارة أصحاب المصلحة.",
+                service2Title: "التحكم في الميزانية",
+                service2Desc: "سجل حافل في تحسين التكاليف والإدارة المالية. تسليم المشاريع ضمن الميزانية مع الحفاظ على الجودة.",
+                service3Title: "تنفيذ الأنظمة الكهروميكانيكية",
+                service3Desc: "خبير في أنظمة التكييف والسباكة ومكافحة الحرائق. متمكن من برامج أوتوكاد وHAP وبرامج تصميم الأنظمة الكهروميكانيكية.",
+                service4Title: "ضمان الجودة",
+                service4Desc: "تطبيق معايير أرامكو وفيفا وASHRAE وNFPA. عمليات قوية لضمان الجودة من أجل التميز في المشروع.",
+                service5Title: "التوثيق",
+                service5Desc: "توثيق منظم ورقابة على المراجعات. تحسين وتيرة التقارير لأصحاب المصلحة والمراجعات.",
+                service6Title: "بناء الفريق",
+                service6Desc: "بناء فرق عالية الأداء عبر مشاريع متعددة. زيادة الكفاءة بنسبة 18٪ من خلال التدريب.",
+                
+                // Projects Section
+                project1Title: "ملعب أرامكو لكأس العالم",
+                project1Badge1: "+280 مليون ريال",
+                project1Badge2: "الدمام، السعودية",
+                project1Badge3: "ملعب",
+                project1Desc: "إدارة جميع التركيبات الميكانيكية في مشروع ملعب كبير. تحقيق امتثال كامل لمعايير أرامكو والفيفا.",
+                
+                project2Title: "مشروع ملكي",
+                project2Badge1: "+420 مليون ريال",
+                project2Badge2: "الرياض، السعودية",
+                project2Badge3: "أمن عالي",
+                project2Desc: "إدارة النطاق الميكانيكي والمشتريات لمشروع ملكي عالي الأمان مع متطلبات جودة صارمة.",
+                
+                project3Title: "منصة إدارة منشآت الملعب",
+                project3Badge1: "أداة برمجية",
+                project3Badge2: "منصة إدارة مشاريع",
+                project3Badge3: "",
+                project3Desc: "تطوير منصة إدارة مشاريع ثنائية اللغة معيارية للتقارير القابلة للدفاع ومراقبة المراجعة ووضوح أصحاب المصلحة.",
+                
+                project4Title: "نظام تتبع العوائق الميدانية",
+                project4Badge1: "أداة ميدانية",
+                project4Badge2: "أسرع 35٪",
+                project4Badge3: "",
+                project4Desc: "نظام التقاط العوائق في الوقت الفعلي مع الصور والعلامات الجغرافية وسجلات الأدلة الموقوتة.",
+                
+                project5Title: "تطبيق تقديم التقارير اليومية",
+                project5Badge1: "تقارير",
+                project5Badge2: "متعدد المواقع",
+                project5Badge3: "",
+                project5Desc: "تطبيق تقارير يومية ميداني مع وظيفة تصدير CSV للموافقات الأسرع.",
+                
+                project6Title: "حاسبات هندسية",
+                project6Badge1: "أدوات تقنية",
+                project6Badge2: "استخدام إقليمي",
+                project6Badge3: "",
+                project6Desc: "نشر حاسبات زوايا الشمس ونظام المياه للتصميم الدقيق لأنظمة التكييف والسباكة.",
+                
+                // Achievements Section
+                achievementsCategory: "الإنجازات الرئيسية",
+                achievementsTitle: "النقاط المهنية البارزة",
+                achievement1Title: "+700 مليون ريال",
+                achievement1Desc: "إجمالي قيمة المشاريع المدارة خلال المسيرة المهنية",
+                achievement2Title: "+34 مشروع",
+                achievement2Desc: "المشاريع المنجزة بنجاح",
+                achievement3Title: "95٪ رضا",
+                achievement3Desc: "رضا العملاء عبر أكثر من 34 مشروعًا منجزًا",
+                achievement4Title: "معتمد فيفا",
+                achievement4Desc: "خبير في الامتثال لمعايير أرامكو والفيفا",
+                achievement5Title: "صفر حوادث",
+                achievement5Desc: "سجل السلامة في مشروع ملعب أرامكو",
+                achievement6Title: "18٪ كفاءة",
+                achievement6Desc: "زيادة إنتاجية الفريق من خلال التدريب",
+                achievement7Title: "التسليم في الوقت المحدد",
+                achievement7Desc: "إنجاز مستمر للمشاريع ضمن المواعيد النهائية",
+                achievement8Title: "تميز في الميزانية",
+                achievement8Desc: "تسليم مشروع ملكي بقيمة 165 مليون ريال ضمن الميزانية",
+                
+                // Testimonials Section
+                testimonialsCategory2: "آراء العملاء",
+                testimonialsTitle2: "ماذا يقول الناس",
+                testimonial1Text: "خبرة عبد الهادي في إدارة مشاريع الأنظمة الكهروميكانيكية استثنائية. اهتمامه بالتفاصيل والتزامه بمعايير الجودة ضمن تسليم مشروع الملعب في الوقت المحدد وضمن الميزانية. معرفته الفنية ومهاراته القيادية متميزة.",
+                testimonial1Name: "مدير مشروع أول",
+                testimonial1Company: "مشروع ملعب أرامكو",
+                
+                testimonial2Text: "العمل مع عبد الهادي على المشروع الملكي كان متعة. احترافيته، خبرته الفنية، وقدرته على تنسيق الأنظمة الميكانيكية المعقدة تحت مواعيد نهائية ضيقة كانت مبهرة. قدم نتائج عالية الجودة باستمرار.",
+                testimonial2Name: "مدير المشروع",
+                testimonial2Company: "فيرست فيكس - المشروع الملكي",
+                
+                testimonial3Text: "تطبيق عبد الهادي لأدوات إدارة المشاريع وأنظمة التقارير حسّن بشكل كبير من كفاءتنا التشغيلية. نهجه المبتكر في حل التحديات الهندسية المعقدة وتفانيه في تطوير الفريق يجعله أصلاً لا يقدر بثمن.",
+                testimonial3Name: "المدير العام",
+                testimonial3Company: "مؤسسة العجمي",
+                
+                testimonial4Text: "على مر السنين، أظهر عبد الهادي باستمرار مهارات استثنائية في إدارة المشاريع والكفاءة الفنية. قدرته على إدارة مشاريع متعددة في وقت واحد مع الحفاظ على معايير الجودة العالية أمر رائع. محترف موصى به بشدة.",
+                testimonial4Name: "كبير المهندسين",
+                testimonial4Company: "فنار العربية الدولية",
+                
+                // Contact Section
+                contactCategory2: "تواصل",
+                contactTitle2: "تواصل معي",
+                linkedinLabel: "لينكد إن",
+                contactUsLabel: "اتصل بنا",
+                emailLabel: "البريد الإلكتروني",
+                locationLabel: "الموقع",
+                locationValue2: "الدمام\nالمملكة العربية السعودية",
+                namePlaceholder: "* اسمك",
+                emailPlaceholder: "* بريدك الإلكتروني",
+                subjectPlaceholder: "الموضوع",
+                messagePlaceholder: "* رسالتك"
             }
         };
 
@@ -3050,8 +3509,15 @@
             const heroH4 = document.querySelector('.hero-content h4');
             if (heroH4) heroH4.textContent = t.hello;
             
-            const heroH1Span = document.querySelector('.hero-content h1 span');
-            if (heroH1Span) heroH1Span.textContent = t.name;
+            // Update full H1 with "I'm" translation
+            const heroH1 = document.querySelector('.hero-content h1');
+            if (heroH1) {
+                if (lang === 'ar') {
+                    heroH1.innerHTML = `${t.imText} <span>${t.name}</span>`;
+                } else {
+                    heroH1.innerHTML = `I'm <span>${t.name}</span>`;
+                }
+            }
             
             const heroH3 = document.querySelector('.hero-subtitle');
             if (heroH3) heroH3.textContent = t.heroTitle;
@@ -3073,6 +3539,28 @@
             const aboutTitle = document.querySelector('.about-section .section-title h2');
             if (aboutTitle) aboutTitle.textContent = t.aboutTitle;
             
+            // Update About section name (h3)
+            const aboutH3 = document.querySelector('.about-content h3');
+            if (aboutH3) aboutH3.textContent = t.nameValue;
+            
+            // Update About section paragraphs
+            const aboutParagraphs = document.querySelectorAll('.about-content > p');
+            if (aboutParagraphs[0] && t.aboutDesc1) {
+                aboutParagraphs[0].innerHTML = t.aboutDesc1;
+            }
+            if (aboutParagraphs[1] && t.aboutDesc2) {
+                aboutParagraphs[1].innerHTML = t.aboutDesc2;
+            }
+            
+            // Update About Section - Info Box
+            const infoBoxItems = document.querySelectorAll('.info-box p');
+            if (infoBoxItems[0]) infoBoxItems[0].innerHTML = `<strong>${t.infoName}:</strong> ${t.nameValue}`;
+            if (infoBoxItems[1]) infoBoxItems[1].innerHTML = `<strong>${t.infoEmail}:</strong> ehadyhabib@gmail.com`;
+            if (infoBoxItems[2]) infoBoxItems[2].innerHTML = `<strong>${t.infoPhone}:</strong> ${t.phone}`;
+            if (infoBoxItems[3]) infoBoxItems[3].innerHTML = `<strong>${t.infoLocation}:</strong> ${t.locationValue}`;
+            if (infoBoxItems[4]) infoBoxItems[4].innerHTML = `<strong>${t.infoExperience}:</strong> ${t.experienceValue}`;
+            if (infoBoxItems[5]) infoBoxItems[5].innerHTML = `<strong>${t.infoLanguages}:</strong> ${t.languagesValue}`;
+            
             const aboutContactBtn = document.querySelector('.about-section .btn-primary-custom');
             if (aboutContactBtn) aboutContactBtn.innerHTML = `<i class="fas fa-envelope"></i> ${t.contactMe}`;
             
@@ -3086,9 +3574,6 @@
             if (statItems[2]) statItems[2].textContent = t.sarBudgetManaged;
             if (statItems[3]) statItems[3].textContent = t.clientSatisfaction;
             
-            // Update About Section - Info Box (if needed, add data attributes to HTML for precise targeting)
-            // This section can be expanded based on your HTML structure
-            
             // Update Education section
             const educationCategory = document.querySelector('.timeline-section:nth-of-type(2) .section-title span');
             if (educationCategory) educationCategory.textContent = t.educationCategory;
@@ -3100,10 +3585,10 @@
             const educationSection = document.getElementById('education');
             if (educationSection) {
                 const eduSpan = educationSection.querySelector('.section-title span');
-                if (eduSpan) eduSpan.textContent = t.learning;
+                if (eduSpan) eduSpan.textContent = t.educationCategory2 || t.learning;
                 
                 const eduTitle = educationSection.querySelector('.section-title h2');
-                if (eduTitle) eduTitle.textContent = t.educationTitle;
+                if (eduTitle) eduTitle.textContent = t.educationTitle2 || t.educationTitle;
                 
                 const eduYear = educationSection.querySelector('.timeline-year h2');
                 if (eduYear) eduYear.textContent = t.educationYear;
@@ -3132,10 +3617,10 @@
             const experienceSection = document.getElementById('experience');
             if (experienceSection) {
                 const expSpan = experienceSection.querySelector('.section-title span');
-                if (expSpan) expSpan.textContent = t.involvement;
+                if (expSpan) expSpan.textContent = t.experienceCategory2 || t.involvement;
                 
                 const expTitle = experienceSection.querySelector('.section-title h2');
-                if (expTitle) expTitle.textContent = t.experienceTitle;
+                if (expTitle) expTitle.textContent = t.experienceTitle2 || t.experienceTitle;
                 
                 // Get all timeline years and items
                 const timelineYears = experienceSection.querySelectorAll('.timeline-year h2');
@@ -3156,9 +3641,10 @@
                     if (lis[1]) lis[1].textContent = t.sharqawiPoint2;
                     if (lis[2]) lis[2].textContent = t.sharqawiPoint3;
                     if (lis[3]) lis[3].textContent = t.sharqawiPoint4;
+                    if (lis[4]) lis[4].textContent = t.sharqawiPoint5;
                 }
                 
-                // 2023 - Moharram
+                // 2023 - First Fix
                 if (timelineYears[1]) timelineYears[1].textContent = t.year2023;
                 if (timelineItems[1]) {
                     const badge = timelineItems[1].querySelector('.badge-custom');
@@ -3166,104 +3652,257 @@
                     const h5 = timelineItems[1].querySelector('h5');
                     const lis = timelineItems[1].querySelectorAll('li');
                     
-                    if (badge) badge.textContent = t.moharramJob;
+                    if (badge) badge.textContent = t.firstFixJob;
                     if (h4) h4.textContent = t.constructionMgr;
-                    if (h5) h5.textContent = t.moharramCompany;
-                    if (lis[0]) lis[0].textContent = t.moharramPoint1;
-                    if (lis[1]) lis[1].textContent = t.moharramPoint2;
-                    if (lis[2]) lis[2].textContent = t.moharramPoint3;
-                    if (lis[3]) lis[3].textContent = t.moharramPoint4;
+                    if (h5) h5.textContent = t.firstFixCompany;
+                    if (lis[0]) lis[0].textContent = t.firstFixPoint1;
+                    if (lis[1]) lis[1].textContent = t.firstFixPoint2;
+                    if (lis[2]) lis[2].textContent = t.firstFixPoint3;
+                    if (lis[3]) lis[3].textContent = t.firstFixPoint4;
                 }
                 
-                // 2022 - BNCC
-                if (timelineYears[2]) timelineYears[2].textContent = t.year2022;
+                // 2021 - Al-Ajmy
+                if (timelineYears[2]) timelineYears[2].textContent = t.year2021;
                 if (timelineItems[2]) {
                     const badge = timelineItems[2].querySelector('.badge-custom');
                     const h4 = timelineItems[2].querySelector('h4');
                     const h5 = timelineItems[2].querySelector('h5');
                     const lis = timelineItems[2].querySelectorAll('li');
                     
-                    if (badge) badge.textContent = t.bnccJob;
-                    if (h4) h4.textContent = t.mepManager;
-                    if (h5) h5.textContent = t.bnccCompany;
-                    if (lis[0]) lis[0].textContent = t.bnccPoint1;
-                    if (lis[1]) lis[1].textContent = t.bnccPoint2;
-                    if (lis[2]) lis[2].textContent = t.bnccPoint3;
-                    if (lis[3]) lis[3].textContent = t.bnccPoint4;
+                    if (badge) badge.textContent = t.alajmyJob;
+                    if (h4) h4.textContent = t.mechEngManager;
+                    if (h5) h5.textContent = t.alajmyCompany;
+                    if (lis[0]) lis[0].textContent = t.alajmyPoint1;
+                    if (lis[1]) lis[1].textContent = t.alajmyPoint2;
+                    if (lis[2]) lis[2].textContent = t.alajmyPoint3;
+                    if (lis[3]) lis[3].textContent = t.alajmyPoint4;
                 }
                 
-                // 2018 - Alharbi
-                if (timelineYears[3]) timelineYears[3].textContent = t.year2018;
+                // 2016 - Fanar Arabian International
+                if (timelineYears[3]) timelineYears[3].textContent = t.year2016;
                 if (timelineItems[3]) {
                     const badge = timelineItems[3].querySelector('.badge-custom');
                     const h4 = timelineItems[3].querySelector('h4');
                     const h5 = timelineItems[3].querySelector('h5');
                     const lis = timelineItems[3].querySelectorAll('li');
                     
-                    if (badge) badge.textContent = t.alharbiJob;
-                    if (h4) h4.textContent = t.seniorMEPEngineer;
-                    if (h5) h5.textContent = t.alharbiCompany;
-                    if (lis[0]) lis[0].textContent = t.alharbiPoint1;
-                    if (lis[1]) lis[1].textContent = t.alharbiPoint2;
-                    if (lis[2]) lis[2].textContent = t.alharbiPoint3;
-                    if (lis[3]) lis[3].textContent = t.alharbiPoint4;
+                    if (badge) badge.textContent = t.fanarJob;
+                    if (h4) h4.textContent = t.fanarMechEngManager;
+                    if (h5) h5.textContent = t.fanarCompany;
+                    if (lis[0]) lis[0].textContent = t.fanarPoint1;
+                    if (lis[1]) lis[1].textContent = t.fanarPoint2;
+                    if (lis[2]) lis[2].textContent = t.fanarPoint3;
+                    if (lis[3]) lis[3].textContent = t.fanarPoint4;
                 }
                 
-                // 2011 - Early Career
-                if (timelineYears[4]) timelineYears[4].textContent = t.year2011;
+                // 2008 - Abdul-Aziz Omran Al-Omran
+                if (timelineYears[4]) timelineYears[4].textContent = t.year2008;
                 if (timelineItems[4]) {
                     const badge = timelineItems[4].querySelector('.badge-custom');
                     const h4 = timelineItems[4].querySelector('h4');
                     const h5 = timelineItems[4].querySelector('h5');
                     const lis = timelineItems[4].querySelectorAll('li');
                     
-                    if (badge) badge.textContent = t.earlyCareerJob;
-                    if (h4) h4.textContent = t.mepEngineer;
-                    if (h5) h5.textContent = t.earlyCareerCompany;
-                    if (lis[0]) lis[0].textContent = t.earlyCareerPoint1;
-                    if (lis[1]) lis[1].textContent = t.earlyCareerPoint2;
-                    if (lis[2]) lis[2].textContent = t.earlyCareerPoint3;
-                    if (lis[3]) lis[3].textContent = t.earlyCareerPoint4;
+                    if (badge) badge.textContent = t.omranJob;
+                    if (h4) h4.textContent = t.officeFieldEngineer;
+                    if (h5) h5.textContent = t.omranCompany;
+                    if (lis[0]) lis[0].textContent = t.omranPoint1;
+                    if (lis[1]) lis[1].textContent = t.omranPoint2;
+                    if (lis[2]) lis[2].textContent = t.omranPoint3;
+                    if (lis[3]) lis[3].textContent = t.omranPoint4;
                 }
             }
             
             // Update Skills section
-            const skillsCategory = document.querySelector('.skills-section .section-title span');
-            if (skillsCategory) skillsCategory.textContent = t.skillsCategory;
-            
-            const skillsTitle = document.querySelector('.skills-section .section-title h2');
-            if (skillsTitle) skillsTitle.textContent = t.skillsTitle;
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                const skillsCat = skillsSection.querySelector('.section-title span');
+                const skillsTit = skillsSection.querySelector('.section-title h2');
+                if (skillsCat) skillsCat.textContent = t.skillsCategory2 || t.skillsCategory;
+                if (skillsTit) skillsTit.textContent = t.skillsTitle2 || t.skillsTitle;
+                
+                // Update skill names (h5 tags with percentages)
+                const skillNames = skillsSection.querySelectorAll('.skill-progress-item h5');
+                const skillKeys = ['skill1', 'skill2', 'skill3', 'skill4', 'skill5', 'skill6', 'skill7', 'skill8'];
+                skillNames.forEach((skillName, index) => {
+                    if (t[skillKeys[index]]) {
+                        const percentage = skillName.querySelector('span');
+                        if (percentage) {
+                            const percentText = percentage.textContent;
+                            skillName.innerHTML = `${t[skillKeys[index]]} <span>${percentText}</span>`;
+                        }
+                    }
+                });
+            }
             
             // Update Services section
-            const servicesCategory = document.querySelector('.services-section .section-title span');
-            if (servicesCategory) servicesCategory.textContent = t.servicesCategory;
-            
-            const servicesTitle = document.querySelector('.services-section .section-title h2');
-            if (servicesTitle) servicesTitle.textContent = t.servicesTitle;
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                const servicesCat = servicesSection.querySelector('.section-title span');
+                const servicesTit = servicesSection.querySelector('.section-title h2');
+                if (servicesCat) servicesCat.textContent = t.servicesCategory2 || t.servicesCategory;
+                if (servicesTit) servicesTit.textContent = t.servicesTitle2 || t.servicesTitle;
+                
+                // Update service cards
+                const serviceCards = servicesSection.querySelectorAll('.service-card');
+                const serviceKeys = [
+                    {title: 'service1Title', desc: 'service1Desc'},
+                    {title: 'service2Title', desc: 'service2Desc'},
+                    {title: 'service3Title', desc: 'service3Desc'},
+                    {title: 'service4Title', desc: 'service4Desc'},
+                    {title: 'service5Title', desc: 'service5Desc'},
+                    {title: 'service6Title', desc: 'service6Desc'}
+                ];
+                
+                serviceCards.forEach((card, index) => {
+                    if (serviceKeys[index]) {
+                        const h4 = card.querySelector('h4');
+                        const p = card.querySelector('p');
+                        if (h4 && t[serviceKeys[index].title]) h4.textContent = t[serviceKeys[index].title];
+                        if (p && t[serviceKeys[index].desc]) p.textContent = t[serviceKeys[index].desc];
+                    }
+                });
+            }
             
             // Update Projects section
-            const projectsCategory = document.querySelector('.projects-section .section-title span');
-            if (projectsCategory) projectsCategory.textContent = t.projectsCategory;
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                const projectsCat = projectsSection.querySelector('.section-title span');
+                const projectsTit = projectsSection.querySelector('.section-title h2');
+                if (projectsCat) projectsCat.textContent = t.projectsCategory;
+                if (projectsTit) projectsTit.textContent = t.projectsTitle;
+                
+                // Update project cards
+                const projectCards = projectsSection.querySelectorAll('.project-card');
+                const projectKeys = [
+                    {title: 'project1Title', badge1: 'project1Badge1', badge2: 'project1Badge2', badge3: 'project1Badge3', desc: 'project1Desc'},
+                    {title: 'project2Title', badge1: 'project2Badge1', badge2: 'project2Badge2', badge3: 'project2Badge3', desc: 'project2Desc'},
+                    {title: 'project3Title', badge1: 'project3Badge1', badge2: 'project3Badge2', badge3: 'project3Badge3', desc: 'project3Desc'},
+                    {title: 'project4Title', badge1: 'project4Badge1', badge2: 'project4Badge2', badge3: 'project4Badge3', desc: 'project4Desc'},
+                    {title: 'project5Title', badge1: 'project5Badge1', badge2: 'project5Badge2', badge3: 'project5Badge3', desc: 'project5Desc'},
+                    {title: 'project6Title', badge1: 'project6Badge1', badge2: 'project6Badge2', badge3: 'project6Badge3', desc: 'project6Desc'}
+                ];
+                
+                projectCards.forEach((card, index) => {
+                    if (projectKeys[index]) {
+                        const h4 = card.querySelector('h4');
+                        const p = card.querySelector('p');
+                        const badges = card.querySelectorAll('.badge');
+                        
+                        if (h4 && t[projectKeys[index].title]) h4.textContent = t[projectKeys[index].title];
+                        if (p && t[projectKeys[index].desc]) p.textContent = t[projectKeys[index].desc];
+                        if (badges[0] && t[projectKeys[index].badge1]) badges[0].textContent = t[projectKeys[index].badge1];
+                        if (badges[1] && t[projectKeys[index].badge2]) badges[1].textContent = t[projectKeys[index].badge2];
+                        if (badges[2] && t[projectKeys[index].badge3] && t[projectKeys[index].badge3] !== '') badges[2].textContent = t[projectKeys[index].badge3];
+                    }
+                });
+            }
             
-            const projectsTitle = document.querySelector('.projects-section .section-title h2');
-            if (projectsTitle) projectsTitle.textContent = t.projectsTitle;
+            // Update Achievements Section
+            const achievementsSection = document.querySelector('.achievements-section');
+            if (achievementsSection) {
+                const achCat = achievementsSection.querySelector('.section-title span');
+                const achTitle = achievementsSection.querySelector('.section-title h2');
+                if (achCat) achCat.textContent = t.achievementsCategory;
+                if (achTitle) achTitle.textContent = t.achievementsTitle;
+                
+                // Update achievement cards
+                const achievementCards = achievementsSection.querySelectorAll('.achievement-card');
+                const achievementKeys = [
+                    {title: 'achievement1Title', desc: 'achievement1Desc'},
+                    {title: 'achievement2Title', desc: 'achievement2Desc'},
+                    {title: 'achievement3Title', desc: 'achievement3Desc'},
+                    {title: 'achievement4Title', desc: 'achievement4Desc'},
+                    {title: 'achievement5Title', desc: 'achievement5Desc'},
+                    {title: 'achievement6Title', desc: 'achievement6Desc'},
+                    {title: 'achievement7Title', desc: 'achievement7Desc'},
+                    {title: 'achievement8Title', desc: 'achievement8Desc'}
+                ];
+                
+                achievementCards.forEach((card, index) => {
+                    if (achievementKeys[index]) {
+                        const h4 = card.querySelector('h4');
+                        const p = card.querySelector('p');
+                        if (h4 && t[achievementKeys[index].title]) h4.textContent = t[achievementKeys[index].title];
+                        if (p && t[achievementKeys[index].desc]) p.textContent = t[achievementKeys[index].desc];
+                    }
+                });
+            }
             
             // Update Testimonials section
-            const testimonialsCategory = document.querySelector('.testimonials-section .section-title span');
-            if (testimonialsCategory) testimonialsCategory.textContent = t.testimonialsCategory;
-            
-            const testimonialsTitle = document.querySelector('.testimonials-section .section-title h2');
-            if (testimonialsTitle) testimonialsTitle.textContent = t.testimonialsTitle;
+            const testimonialsSection = document.getElementById('testimonials');
+            if (testimonialsSection) {
+                const testCat = testimonialsSection.querySelector('.section-title span');
+                const testTitle = testimonialsSection.querySelector('.section-title h2');
+                if (testCat) testCat.textContent = t.testimonialsCategory2 || t.testimonialsCategory;
+                if (testTitle) testTitle.textContent = t.testimonialsTitle2 || t.testimonialsTitle;
+                
+                // Update testimonial cards
+                const testimonialCards = testimonialsSection.querySelectorAll('.testimonial-card');
+                const testimonialKeys = [
+                    {text: 'testimonial1Text', name: 'testimonial1Name', company: 'testimonial1Company'},
+                    {text: 'testimonial2Text', name: 'testimonial2Name', company: 'testimonial2Company'},
+                    {text: 'testimonial3Text', name: 'testimonial3Name', company: 'testimonial3Company'},
+                    {text: 'testimonial4Text', name: 'testimonial4Name', company: 'testimonial4Company'}
+                ];
+                
+                testimonialCards.forEach((card, index) => {
+                    if (testimonialKeys[index]) {
+                        const p = card.querySelector('.testimonial-content > p');
+                        const h5 = card.querySelector('.testimonial-author-info h5');
+                        const span = card.querySelector('.testimonial-author-info span');
+                        
+                        if (p && t[testimonialKeys[index].text]) p.textContent = `"${t[testimonialKeys[index].text]}"`;
+                        if (h5 && t[testimonialKeys[index].name]) h5.textContent = t[testimonialKeys[index].name];
+                        if (span && t[testimonialKeys[index].company]) span.textContent = t[testimonialKeys[index].company];
+                    }
+                });
+            }
             
             // Update Contact section
-            const contactCategory = document.querySelector('.contact-section .section-title span');
-            if (contactCategory) contactCategory.textContent = t.contactCategory;
-            
-            const contactTitle = document.querySelector('.contact-section .section-title h2');
-            if (contactTitle) contactTitle.textContent = t.contactTitle;
-            
-            const submitBtn = document.querySelector('button[type="submit"]');
-            if (submitBtn) submitBtn.textContent = t.sendMessage;
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const contactCat = contactSection.querySelector('.section-title span');
+                const contactTit = contactSection.querySelector('.section-title h2');
+                if (contactCat) contactCat.textContent = t.contactCategory2;
+                if (contactTit) contactTit.textContent = t.contactTitle2;
+                
+                // Update contact info boxes (Order: Location, Email, Phone, LinkedIn)
+                const contactBoxes = contactSection.querySelectorAll('.contact-info-box');
+                if (contactBoxes[0]) {
+                    const h4 = contactBoxes[0].querySelector('h4');
+                    const p = contactBoxes[0].querySelector('p');
+                    if (h4) h4.textContent = t.locationLabel;
+                    if (p) p.textContent = t.locationValue2;
+                }
+                if (contactBoxes[1]) {
+                    const h4 = contactBoxes[1].querySelector('h4');
+                    if (h4) h4.textContent = t.emailLabel;
+                }
+                if (contactBoxes[2]) {
+                    const h4 = contactBoxes[2].querySelector('h4');
+                    if (h4) h4.textContent = t.contactUsLabel;
+                }
+                if (contactBoxes[3]) {
+                    const h4 = contactBoxes[3].querySelector('h4');
+                    if (h4) h4.textContent = t.linkedinLabel;
+                }
+                
+                // Update form placeholders
+                const nameInput = contactSection.querySelector('input[placeholder*="Name"]');
+                const emailInput = contactSection.querySelector('input[placeholder*="Email"]');
+                const subjectInput = contactSection.querySelector('input[placeholder*="Subject"]');
+                const messageTextarea = contactSection.querySelector('textarea[placeholder*="Message"]');
+                
+                if (nameInput) nameInput.placeholder = t.namePlaceholder;
+                if (emailInput) emailInput.placeholder = t.emailPlaceholder;
+                if (subjectInput) subjectInput.placeholder = t.subjectPlaceholder;
+                if (messageTextarea) messageTextarea.placeholder = t.messagePlaceholder;
+                
+                // Update submit button
+                const submitBtn = contactSection.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.textContent = t.sendMessage;
+            }
             
             // Update Footer
             const footerSections = document.querySelectorAll('.footer-section h4');
