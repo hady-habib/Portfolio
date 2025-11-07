@@ -1437,6 +1437,219 @@
             margin-bottom: 15px;
         }
 
+        /* Gallery Section */
+        .gallery-section {
+            background: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-overlay h4 {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin: 0;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.2s;
+        }
+
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay i {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 15px;
+            transform: scale(0);
+            transition: transform 0.4s ease 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover {
+            background: #fff;
+            color: #000;
+            transform: rotate(90deg);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-nav:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
@@ -1983,6 +2196,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -2469,6 +2683,84 @@
             </div>
         </section>
 
+        <!-- Gallery Section -->
+        <section class="section gallery-section" id="gallery">
+            <div class="container-fluid">
+                <div class="section-title">
+                    <span>Visual Portfolio</span>
+                    <h2>Project Gallery</h2>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item" onclick="openLightbox(0)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%23000000' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EAramco Stadium%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EMEP Systems Installation%3C/text%3E%3C/svg%3E" 
+                             alt="Aramco Stadium Project" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>Aramco FIFA World Cup Stadium</h4>
+                            <p>MEP Systems Installation - Dammam, KSA</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item" onclick="openLightbox(1)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%231a1a1a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3ERoyal Project%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EHVAC Systems%3C/text%3E%3C/svg%3E" 
+                             alt="Royal Project HVAC" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>Royal Project - SAR 420M+</h4>
+                            <p>Complete Mechanical Systems - Riyadh</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item" onclick="openLightbox(2)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%232a2a2a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EHVAC Design%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3ECommercial Building%3C/text%3E%3C/svg%3E" 
+                             alt="HVAC Design Project" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>Commercial HVAC Design</h4>
+                            <p>Energy-Efficient Systems Design</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item" onclick="openLightbox(3)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%233a3a3a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EPlumbing Systems%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EMulti-Story Complex%3C/text%3E%3C/svg%3E" 
+                             alt="Plumbing Systems" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>Plumbing & Firefighting</h4>
+                            <p>Integrated Water Systems</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item" onclick="openLightbox(4)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%234a4a4a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EProject Site%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EConstruction Phase%3C/text%3E%3C/svg%3E" 
+                             alt="Construction Site" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>On-Site Execution</h4>
+                            <p>MEP Installation in Progress</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item" onclick="openLightbox(5)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%23000000' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EQuality Control%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EInspection & Testing%3C/text%3E%3C/svg%3E" 
+                             alt="Quality Control" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <h4>QA/QC Documentation</h4>
+                            <p>Aramco Standards Compliance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="section contact-section" id="contact">
             <div class="container-fluid">
@@ -2790,6 +3082,23 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="lightbox-prev lightbox-nav" onclick="event.stopPropagation(); changeImage(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-next lightbox-nav" onclick="event.stopPropagation(); changeImage(1)">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -2829,6 +3138,7 @@
                 skills: "Skills",
                 services: "Services",
                 projects: "Projects",
+                gallery: "Gallery",
                 testimonials: "Testimonials",
                 contact: "Contact",
                 
@@ -3062,6 +3372,22 @@
                 project6Badge3: "",
                 project6Desc: "Published solar angles and water system calculators for accurate HVAC and plumbing design.",
                 
+                // Gallery Section
+                galleryCategory: "Visual Portfolio",
+                galleryTitle: "Project Gallery",
+                gallery1Title: "Aramco FIFA World Cup Stadium",
+                gallery1Desc: "MEP Systems Installation - Dammam, KSA",
+                gallery2Title: "Royal Project - SAR 420M+",
+                gallery2Desc: "Complete Mechanical Systems - Riyadh",
+                gallery3Title: "Commercial HVAC Design",
+                gallery3Desc: "Energy-Efficient Systems Design",
+                gallery4Title: "Plumbing & Firefighting",
+                gallery4Desc: "Integrated Water Systems",
+                gallery5Title: "On-Site Execution",
+                gallery5Desc: "MEP Installation in Progress",
+                gallery6Title: "QA/QC Documentation",
+                gallery6Desc: "Aramco Standards Compliance",
+                
                 // Achievements Section
                 achievementsCategory: "Key Achievements",
                 achievementsTitle: "Professional Highlights",
@@ -3123,6 +3449,7 @@
                 skills: "المهارات",
                 services: "الخدمات",
                 projects: "المشاريع",
+                gallery: "المعرض",
                 testimonials: "التوصيات",
                 contact: "اتصل بي",
                 
@@ -3356,6 +3683,22 @@
                 project6Badge3: "",
                 project6Desc: "نشر حاسبات زوايا الشمس ونظام المياه للتصميم الدقيق لأنظمة التكييف والسباكة.",
                 
+                // Gallery Section
+                galleryCategory: "معرض الصور",
+                galleryTitle: "معرض المشاريع",
+                gallery1Title: "ملعب أرامكو لكأس العالم",
+                gallery1Desc: "تركيب الأنظمة الكهروميكانيكية - الدمام، السعودية",
+                gallery2Title: "المشروع الملكي - +420 مليون ريال",
+                gallery2Desc: "الأنظمة الميكانيكية الكاملة - الرياض",
+                gallery3Title: "تصميم التكييف التجاري",
+                gallery3Desc: "تصميم الأنظمة الموفرة للطاقة",
+                gallery4Title: "السباكة ومكافحة الحرائق",
+                gallery4Desc: "أنظمة المياه المتكاملة",
+                gallery5Title: "التنفيذ الميداني",
+                gallery5Desc: "تركيب الأنظمة الكهروميكانيكية قيد التنفيذ",
+                gallery6Title: "توثيق ضمان الجودة",
+                gallery6Desc: "الامتثال لمعايير أرامكو",
+                
                 // Achievements Section
                 achievementsCategory: "الإنجازات الرئيسية",
                 achievementsTitle: "النقاط المهنية البارزة",
@@ -3494,7 +3837,7 @@
             
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-menu a');
-            const navTexts = ['home', 'aboutMe', 'education', 'experience', 'skills', 'services', 'projects', 'testimonials', 'contact'];
+            const navTexts = ['home', 'aboutMe', 'experience', 'education', 'skills', 'services', 'projects', 'gallery', 'testimonials', 'contact'];
             navLinks.forEach((link, index) => {
                 if (navTexts[index]) {
                     link.textContent = t[navTexts[index]];
@@ -3825,6 +4168,35 @@
                         const p = card.querySelector('p');
                         if (h4 && t[achievementKeys[index].title]) h4.textContent = t[achievementKeys[index].title];
                         if (p && t[achievementKeys[index].desc]) p.textContent = t[achievementKeys[index].desc];
+                    }
+                });
+            }
+            
+            // Update Gallery section
+            const gallerySection = document.getElementById('gallery');
+            if (gallerySection) {
+                const galleryCat = gallerySection.querySelector('.section-title span');
+                const galleryTit = gallerySection.querySelector('.section-title h2');
+                if (galleryCat) galleryCat.textContent = t.galleryCategory;
+                if (galleryTit) galleryTit.textContent = t.galleryTitle;
+                
+                // Update gallery item overlays
+                const galleryItems = gallerySection.querySelectorAll('.gallery-item');
+                const galleryKeys = [
+                    {title: 'gallery1Title', desc: 'gallery1Desc'},
+                    {title: 'gallery2Title', desc: 'gallery2Desc'},
+                    {title: 'gallery3Title', desc: 'gallery3Desc'},
+                    {title: 'gallery4Title', desc: 'gallery4Desc'},
+                    {title: 'gallery5Title', desc: 'gallery5Desc'},
+                    {title: 'gallery6Title', desc: 'gallery6Desc'}
+                ];
+                
+                galleryItems.forEach((item, index) => {
+                    if (galleryKeys[index]) {
+                        const h4 = item.querySelector('.gallery-overlay h4');
+                        const p = item.querySelector('.gallery-overlay p');
+                        if (h4 && t[galleryKeys[index].title]) h4.textContent = t[galleryKeys[index].title];
+                        if (p && t[galleryKeys[index].desc]) p.textContent = t[galleryKeys[index].desc];
                     }
                 });
             }
@@ -4167,6 +4539,85 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
             document.querySelectorAll('.service-card, .project-card, .timeline-item').forEach(el => observer.observe(el));
+        });
+
+        // Gallery Lightbox Functions
+        const galleryImages = [
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%23000000' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3EAramco FIFA World Cup Stadium%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EMEP Systems Installation - Dammam, KSA%3C/text%3E%3C/svg%3E",
+                caption: "Aramco FIFA World Cup Stadium - MEP Systems Installation"
+            },
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%231a1a1a' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3ERoyal Project - SAR 420M+%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EComplete Mechanical Systems - Riyadh%3C/text%3E%3C/svg%3E",
+                caption: "Royal Project - Complete Mechanical Systems"
+            },
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%232a2a2a' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3ECommercial HVAC Design%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EEnergy-Efficient Systems Design%3C/text%3E%3C/svg%3E",
+                caption: "Commercial HVAC Design - Energy-Efficient Systems"
+            },
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%233a3a3a' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3EPlumbing %26 Firefighting%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EIntegrated Water Systems%3C/text%3E%3C/svg%3E",
+                caption: "Plumbing & Firefighting - Integrated Water Systems"
+            },
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%234a4a4a' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3EOn-Site Execution%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EMEP Installation in Progress%3C/text%3E%3C/svg%3E",
+                caption: "On-Site Execution - MEP Installation in Progress"
+            },
+            {
+                src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect fill='%23000000' width='1200' height='800'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='72' font-weight='bold' text-anchor='middle' x='600' y='380'%3EQA/QC Documentation%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='36' text-anchor='middle' x='600' y='440'%3EAramco Standards Compliance%3C/text%3E%3C/svg%3E",
+                caption: "QA/QC Documentation - Aramco Standards Compliance"
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = galleryImages[index].src;
+            lightboxCaption.textContent = galleryImages[index].caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.textContent = galleryImages[currentImageIndex].caption;
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                }
+            }
         });
 
         // Keyboard Navigation Support
