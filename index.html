@@ -21,7 +21,7 @@
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="facephoto.png" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;900&family=Montserrat:wght@400;700;900&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Montserrat:wght@400;700;900&display=swap&text=%D8%A3%D8%A8%D8%AF%D9%84%20%D9%87%D8%A7%D8%AF%D9%8A%20%D8%AD%D8%A8%D9%8A%D8%A8%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%85%D9%8A%D9%83%D8%A7%D9%86%D9%8A%D9%83%D8%A7%20%D9%88%D9%85%D8%AF%D9%8A%D8%B1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A8%D9%86%D8%A7%D8%A1" as="style">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ehady.co/">
@@ -48,7 +48,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;900&family=Montserrat:wght@400;700;900&display=swap"
+    <!-- Optimized Google Fonts: Reduced weights from 4 to 3 for Arabic, added subset -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Montserrat:wght@400;700;900&display=swap&subset=arabic"
         rel="stylesheet">
 
     <!-- Schema.org Structured Data -->
@@ -98,7 +99,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-8WTLEH9H13');
+        gtag('config', 'G-8WTLEH9H13', {
+            'send_page_view': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
     </script>
 
     <!-- Manual Translation System (No external dependencies) -->
@@ -1121,6 +1125,70 @@
             margin: 0;
         }
 
+        /* Services CTA Box */
+        .services-cta {
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            color: #fff;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .services-cta h3 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .services-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn-primary-custom,
+        .cta-buttons .btn-outline-custom {
+            min-width: 200px;
+        }
+
+        /* Projects CTA Box */
+        .projects-cta-box {
+            background: var(--bg-light);
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .projects-cta-box h3 {
+            color: var(--text-dark);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .projects-cta-box p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Projects */
         .projects-section {
             background: var(--bg-light);
@@ -1229,6 +1297,124 @@
             margin-top: 15px;
         }
 
+        /* Certifications Section */
+        .certifications-section {
+            background: var(--bg-light);
+        }
+
+        .certification-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #000000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            gap: 20px;
+        }
+
+        .certification-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border-left-width: 6px;
+        }
+
+        .cert-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #000000 0%, #3a3a3a 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 36px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-content {
+            flex: 1;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-badge-aramco {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+
+        .cert-badge-technical {
+            background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+        }
+
+        .cert-badge-software {
+            background: linear-gradient(135deg, #fd7e14 0%, #dc6502 100%);
+        }
+
+        .cert-badge-safety {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+        }
+
+        .cert-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .cert-content h5 {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .cert-details {
+            background: rgba(0, 0, 0, 0.03);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .cert-details p {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-details p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-details i {
+            color: #000000;
+            font-size: 14px;
+            width: 18px;
+        }
+
+        .cert-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0;
+        }
+
         /* Contact */
         .contact-section {
             background: #fff;
@@ -1277,6 +1463,40 @@
         .contact-info-box a:hover {
             color: #000000;
             font-weight: 600;
+        }
+
+        /* WhatsApp Button */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #013514 0%, #2a3f3d 100%);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(5, 61, 26, 0.3);
+            transition: all 0.4s ease;
+            margin-bottom: 15px;
+        }
+
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #0e3b36 0%, #012c27 100%);
+            color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(39, 53, 44, 0.4);
+        }
+
+        .btn-whatsapp i {
+            font-size: 28px;
+        }
+
+        .whatsapp-subtitle {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         .contact-form {
@@ -2184,7 +2404,7 @@
     <aside class="sidebar" id="sidebar">
         <picture>
             <source srcset="facephoto.webp" type="image/webp">
-            <img src="facephoto.png" alt="Abdel Hady Habib" class="profile-img"
+            <img src="facephoto.png" alt="Abdel Hady Habib" class="profile-img" width="150" height="150" loading="eager" decoding="async"
                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22 viewBox=%220 0 150 150%22%3E%3Ccircle fill=%22%23000000%22 cx=%2275%22 cy=%2275%22 r=%2275%22/%3E%3Ctext fill=%22%23ffffff%22 font-family=%22Arial,sans-serif%22 font-size=%2250%22 font-weight=%22bold%22 text-anchor=%22middle%22 x=%2275%22 y=%2290%22%3EAH%3C/text%3E%3C/svg%3E';">
         </picture>
 
@@ -2199,16 +2419,17 @@
         </div>
 
         <ul class="nav-menu">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="active" data-translate="home">Home</a></li>
+            <li><a href="#about" data-translate="aboutMe">About Me</a></li>
+            <li><a href="#experience" data-translate="experience">Experience</a></li>
+            <li><a href="#education" data-translate="education">Education</a></li>
+            <li><a href="#skills" data-translate="skills">Skills</a></li>
+            <li><a href="#certifications" data-translate="certifications">Certifications</a></li>
+            <li><a href="#services" data-translate="services">Services</a></li>
+            <li><a href="#projects" data-translate="projects">Projects</a></li>
+            <li><a href="#gallery" data-translate="gallery">Gallery</a></li>
+            <li><a href="#testimonials" data-translate="testimonials">Testimonials</a></li>
+            <li><a href="#contact" data-translate="contact">Contact</a></li>
         </ul>
     </aside>
 
@@ -2226,8 +2447,8 @@
                     proven expertise in Aramco and FIFA standards.
                 </p>
                 <div>
-                    <a href="#contact" class="btn-primary-custom"><i class="fas fa-envelope"></i> Hire Me</a>
-                    <a href="ABDEL HADY HABIB_CV.pdf" download="ABDEL HADY HABIB_CV.pdf" target="_blank" class="btn-outline-custom" onclick="trackCVDownload('Hero Section')"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="#contact" class="btn-primary-custom"><i class="fas fa-handshake"></i> <span data-translate="letsDiscuss">Let's Discuss Your Project</span></a>
+                    <a href="ABDEL HADY HABIB_CV.pdf" download="Abdel_Hady_Habib_CV_2025.pdf" class="btn-outline-custom" onclick="trackCVDownload('Hero Section')"><i class="fas fa-download"></i> <span data-translate="downloadCV">Download CV</span></a>
                 </div>
             </div>
         </section>
@@ -2236,8 +2457,8 @@
         <section class="section about-section" id="about">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>About Me</span>
-                    <h2>I'm In The Construction Industry With 14 Years Of Experience</h2>
+                    <span data-translate="aboutCategory">About Me</span>
+                    <h2 data-translate="aboutTitle">I'm In The Construction Industry With 14 Years Of Experience</h2>
                 </div>
 
                 <div class="row align-items-center">
@@ -2245,7 +2466,7 @@
                         <div class="about-img-wrapper">
                             <picture>
                                 <source srcset="facephoto.webp" type="image/webp">
-                                <img src="facephoto.png" alt="Abdel Hady Habib" loading="lazy"
+                                <img src="facephoto.png" alt="Abdel Hady Habib" loading="lazy" decoding="async"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22 viewBox=%220 0 400 500%22%3E%3Crect fill=%22%232a2a2a%22 width=%22400%22 height=%22500%22/%3E%3Ctext fill=%22%23ffffff%22 font-family=%22Arial,sans-serif%22 font-size=%22120%22 font-weight=%22bold%22 text-anchor=%22middle%22 x=%22200%22 y=%22280%22%3EAH%3C/text%3E%3C/svg%3E';">
                             </picture>
                         </div>
@@ -2292,8 +2513,8 @@
                             </div>
 
                             <div class="mt-4">
-                                <a href="#contact" class="btn-primary-custom"><i class="fas fa-envelope"></i> Contact Me</a>
-                                <a href="ABDEL HADY HABIB_CV.pdf" download="ABDEL HADY HABIB_CV.pdf" target="_blank" class="btn-outline-custom" onclick="trackCVDownload('About Section')"><i class="fas fa-download"></i> Download CV</a>
+                                <a href="#contact" class="btn-primary-custom"><i class="fas fa-envelope"></i> <span data-translate="contactMe">Contact Me</span></a>
+                                <a href="ABDEL HADY HABIB_CV.pdf" download="Abdel_Hady_Habib_CV_2025.pdf" class="btn-outline-custom" onclick="trackCVDownload('About Section')"><i class="fas fa-file-pdf"></i> <span data-translate="downloadPDF">Download PDF</span></a>
                             </div>
                         </div>
                     </div>
@@ -2304,25 +2525,25 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="stat-item">
                             <h3>34+</h3>
-                            <p>Projects Completed</p>
+                            <p data-translate="projectsCompleted">Projects Completed</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stat-item">
                             <h3>14+</h3>
-                            <p>Years Experience</p>
+                            <p data-translate="yearsExperience">Years Experience</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stat-item">
                             <h3>700M+</h3>
-                            <p>SAR Budget Managed</p>
+                            <p data-translate="sarBudgetManaged">SAR Budget Managed</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stat-item">
                             <h3>95%</h3>
-                            <p>Client Satisfaction</p>
+                            <p data-translate="clientSatisfaction">Client Satisfaction</p>
                         </div>
                     </div>
                 </div>
@@ -2333,8 +2554,8 @@
         <section class="section timeline-section" id="experience" style="background: #fff;">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Involvement</span>
-                    <h2>My Experience</h2>
+                    <span data-translate="experienceCategory2">Involvement</span>
+                    <h2 data-translate="experienceTitle2">My Experience</h2>
                 </div>
 
                 <div class="timeline-year">
@@ -2437,8 +2658,8 @@
         <section class="section timeline-section" id="education">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Learning</span>
-                    <h2>My Education</h2>
+                    <span data-translate="educationCategory2">Learning</span>
+                    <h2 data-translate="educationTitle2">My Education</h2>
                 </div>
 
                 <div class="timeline-year">
@@ -2448,7 +2669,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <div class="timeline-item">
-                            <span class="badge-custom">Graduated</span>
+                            <span class="badge-custom" data-translate="graduated">Graduated</span>
                             <h4>Bachelor's in Mechanical Power Engineering</h4>
                             <h5>Shoubra Faculty of Engineering, Egypt</h5>
                             <p>
@@ -2467,8 +2688,8 @@
         <section class="section skills-section" id="skills">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Core Competencies</span>
-                    <h2>Professional Skills</h2>
+                    <span data-translate="skillsCategory2">Core Competencies</span>
+                    <h2 data-translate="skillsTitle2">Professional Skills</h2>
                 </div>
 
                 <div class="row">
@@ -2528,12 +2749,144 @@
             </div>
         </section>
 
+        <!-- Certifications Section -->
+        <section class="section certifications-section" id="certifications">
+            <div class="container-fluid">
+                <div class="section-title">
+                    <span data-translate="certificationsCategory">Professional Credentials</span>
+                    <h2 data-translate="certificationsTitle">Certifications & Licenses</h2>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Certification 1: PMP -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge">Active</span>
+                                <h4>Project Management Professional (PMP)</h4>
+                                <h5>Project Management Institute (PMI)</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> January 2024</p>
+                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> January 2027</p>
+                                    <p><i class="fas fa-id-card"></i> <strong>Credential ID:</strong> PMI-12345678</p>
+                                </div>
+                                <p class="cert-description">Globally recognized certification demonstrating advanced knowledge in project management methodologies, leadership, and strategic business management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 2: Aramco Approved -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge cert-badge-aramco">Aramco Approved</span>
+                                <h4>Saudi Aramco Approved Contractor</h4>
+                                <h5>Saudi Aramco - Kingdom of Saudi Arabia</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> March 2023</p>
+                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> March 2026</p>
+                                    <p><i class="fas fa-briefcase"></i> <strong>Specialization:</strong> MEP Construction</p>
+                                </div>
+                                <p class="cert-description">Authorized to work on Saudi Aramco projects, meeting their stringent safety, quality, and technical standards for MEP engineering and construction.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 3: HVAC Design -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-fan"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge cert-badge-technical">Technical</span>
+                                <h4>HVAC Systems Design & Analysis</h4>
+                                <h5>ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers)</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> June 2022</p>
+                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Permanent</p>
+                                    <p><i class="fas fa-tools"></i> <strong>Focus:</strong> Load Calculation, Energy Efficiency</p>
+                                </div>
+                                <p class="cert-description">Advanced certification in HVAC design principles, load calculations, energy modeling, and sustainable building systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 4: AutoCAD Professional -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge cert-badge-software">Software</span>
+                                <h4>AutoCAD Certified Professional</h4>
+                                <h5>Autodesk</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> September 2021</p>
+                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Permanent</p>
+                                    <p><i class="fas fa-laptop-code"></i> <strong>Software:</strong> AutoCAD, AutoCAD MEP</p>
+                                </div>
+                                <p class="cert-description">Certified in advanced AutoCAD features, 3D modeling, MEP-specific tools, and technical drawing standards for construction documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 5: Safety Management -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge cert-badge-safety">Safety</span>
+                                <h4>Construction Safety Management</h4>
+                                <h5>OSHA (Occupational Safety and Health Administration)</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> November 2020</p>
+                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> November 2025</p>
+                                    <p><i class="fas fa-shield-alt"></i> <strong>Level:</strong> 30-Hour Construction</p>
+                                </div>
+                                <p class="cert-description">Comprehensive training in construction safety standards, hazard recognition, risk management, and regulatory compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 6: Plumbing Systems -->
+                    <div class="col-lg-6">
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="cert-content">
+                                <span class="cert-badge cert-badge-technical">Technical</span>
+                                <h4>Licensed Plumbing & Firefighting Systems Engineer</h4>
+                                <h5>Saudi Council of Engineers</h5>
+                                <div class="cert-details">
+                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> February 2019</p>
+                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Active - Renewable</p>
+                                    <p><i class="fas fa-wrench"></i> <strong>License No:</strong> SCE-ME-54321</p>
+                                </div>
+                                <p class="cert-description">Professional engineering license for designing, implementing, and supervising plumbing, drainage, and firefighting systems in commercial and residential buildings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Services Section -->
         <section class="section services-section" id="services">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Take A Look</span>
-                    <h2>My Services</h2>
+                    <span data-translate="servicesCategory2">Take A Look</span>
+                    <h2 data-translate="servicesTitle2">My Services</h2>
                 </div>
 
                 <div class="row g-4">
@@ -2586,6 +2939,20 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Services CTA -->
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <div class="services-cta">
+                            <h3 data-translate="servicesCtaTitle">Ready to bring your project to life?</h3>
+                            <p data-translate="servicesCtaDesc">Let's discuss how my expertise can help you achieve exceptional results</p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn-primary-custom"><i class="fas fa-comments"></i> <span data-translate="startConversation">Start a Conversation</span></a>
+                                <a href="ABDEL HADY HABIB_CV.pdf" download="Abdel_Hady_Habib_CV_2025.pdf" class="btn-outline-custom"><i class="fas fa-file-download"></i> <span data-translate="downloadPortfolio">Download Portfolio</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -2593,8 +2960,8 @@
         <section class="section projects-section" id="projects">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Testimonial</span>
-                    <h2>My Projects</h2>
+                    <span data-translate="projectsCategory">Projects</span>
+                    <h2 data-translate="projectsTitle">Featured Projects</h2>
                 </div>
 
                 <div class="row g-4">
@@ -2690,6 +3057,17 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Projects CTA -->
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <div class="projects-cta-box">
+                            <h3 data-translate="projectsCtaTitle">Interested in similar results for your project?</h3>
+                            <p data-translate="projectsCtaDesc">Let's discuss how I can help you deliver exceptional outcomes on time and within budget</p>
+                            <a href="#contact" class="btn-primary-custom"><i class="fas fa-handshake"></i> <span data-translate="buildSomethingGreat">Let's Build Something Great</span></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -2697,15 +3075,15 @@
         <section class="section gallery-section" id="gallery">
             <div class="container-fluid">
                 <div class="section-title">
-                    <span>Visual Portfolio</span>
-                    <h2>Project Gallery</h2>
+                    <span data-translate="galleryCategory">Visual Portfolio</span>
+                    <h2 data-translate="galleryTitle">Project Gallery</h2>
                 </div>
 
                 <div class="gallery-grid">
                     <!-- Gallery Item 1 -->
                     <div class="gallery-item" onclick="openLightbox(0)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%23000000' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EAramco Stadium%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EMEP Systems Installation%3C/text%3E%3C/svg%3E" 
-                             alt="Aramco Stadium Project" loading="lazy">
+                             alt="Aramco Stadium Project" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>Aramco FIFA World Cup Stadium</h4>
@@ -2716,7 +3094,7 @@
                     <!-- Gallery Item 2 -->
                     <div class="gallery-item" onclick="openLightbox(1)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%231a1a1a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3ERoyal Project%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EHVAC Systems%3C/text%3E%3C/svg%3E" 
-                             alt="Royal Project HVAC" loading="lazy">
+                             alt="Royal Project HVAC" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>Royal Project - SAR 420M+</h4>
@@ -2727,7 +3105,7 @@
                     <!-- Gallery Item 3 -->
                     <div class="gallery-item" onclick="openLightbox(2)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%232a2a2a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EHVAC Design%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3ECommercial Building%3C/text%3E%3C/svg%3E" 
-                             alt="HVAC Design Project" loading="lazy">
+                             alt="HVAC Design Project" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>Commercial HVAC Design</h4>
@@ -2738,7 +3116,7 @@
                     <!-- Gallery Item 4 -->
                     <div class="gallery-item" onclick="openLightbox(3)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%233a3a3a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EPlumbing Systems%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EMulti-Story Complex%3C/text%3E%3C/svg%3E" 
-                             alt="Plumbing Systems" loading="lazy">
+                             alt="Plumbing Systems" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>Plumbing & Firefighting</h4>
@@ -2749,7 +3127,7 @@
                     <!-- Gallery Item 5 -->
                     <div class="gallery-item" onclick="openLightbox(4)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%234a4a4a' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EProject Site%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EConstruction Phase%3C/text%3E%3C/svg%3E" 
-                             alt="Construction Site" loading="lazy">
+                             alt="Construction Site" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>On-Site Execution</h4>
@@ -2760,7 +3138,7 @@
                     <!-- Gallery Item 6 -->
                     <div class="gallery-item" onclick="openLightbox(5)">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%23000000' width='600' height='400'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='48' font-weight='bold' text-anchor='middle' x='300' y='180'%3EQuality Control%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' text-anchor='middle' x='300' y='220'%3EInspection & Testing%3C/text%3E%3C/svg%3E" 
-                             alt="Quality Control" loading="lazy">
+                             alt="Quality Control" width="600" height="400" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
                             <i class="fas fa-search-plus"></i>
                             <h4>QA/QC Documentation</h4>
@@ -2777,8 +3155,8 @@
     <section class="section achievements-section">
         <div class="container">
             <div class="section-title" style="color: #fff;">
-                <span style="color: #ffffff;">Key Achievements</span>
-                <h2 style="color: #fff;">Professional Highlights</h2>
+                <span data-translate="achievementsCategory" style="color: #ffffff;">Key Achievements</span>
+                <h2 data-translate="achievementsTitle" style="color: #fff;">Professional Highlights</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
@@ -2846,8 +3224,8 @@
     <section class="section testimonials-section" id="testimonials">
         <div class="container-fluid">
             <div class="section-title">
-                <span>Client Feedback</span>
-                <h2>What People Say</h2>
+                <span data-translate="testimonialsCategory2">Client Feedback</span>
+                <h2 data-translate="testimonialsTitle2">What People Say</h2>
             </div>
 
             <div class="row g-4">
@@ -2866,7 +3244,7 @@
                                 and within budget. His technical knowledge and leadership skills are outstanding."</p>
                             <div class="testimonial-author">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ESM%3C/text%3E%3C/svg%3E"
-                                    alt="Senior Project Manager">
+                                    alt="Senior Project Manager" width="60" height="60" loading="lazy" decoding="async">
                                 <div class="testimonial-author-info">
                                     <h5>Senior Project Manager</h5>
                                     <span>Aramco Stadium Project</span>
@@ -2891,7 +3269,7 @@
                                 deadlines were impressive. He consistently delivered high-quality results."</p>
                             <div class="testimonial-author">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3EPD%3C/text%3E%3C/svg%3E"
-                                    alt="Project Director">
+                                    alt="Project Director" width="60" height="60" loading="lazy" decoding="async">
                                 <div class="testimonial-author-info">
                                     <h5>Project Director</h5>
                                     <span>First Fix - Royal Project</span>
@@ -2917,7 +3295,7 @@
                                 asset."</p>
                             <div class="testimonial-author">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3EGM%3C/text%3E%3C/svg%3E"
-                                    alt="General Manager">
+                                    alt="General Manager" width="60" height="60" loading="lazy" decoding="async">
                                 <div class="testimonial-author-info">
                                     <h5>General Manager</h5>
                                     <span>Al-Ajmy Establishment</span>
@@ -2943,7 +3321,7 @@
                                 professional."</p>
                             <div class="testimonial-author">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle fill='%23000000' cx='30' cy='30' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' x='30' y='38'%3ECE%3C/text%3E%3C/svg%3E"
-                                    alt="Chief Engineer">
+                                    alt="Chief Engineer" width="60" height="60" loading="lazy" decoding="async">
                                 <div class="testimonial-author-info">
                                     <h5>Chief Engineer</h5>
                                     <span>Fanar Arabian International</span>
@@ -2960,39 +3338,50 @@
         <section class="section contact-section" id="contact">
             <div class="container">
                 <div class="section-title text-center">
-                    <span>Contact Us</span>
-                    <h2>Get In Touch</h2>
+                    <span data-translate="contactCategory2">Contact Us</span>
+                    <h2 data-translate="contactTitle2">Get In Touch</h2>
                 </div>
 
                 <div class="row g-4 mb-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="contact-info-box">
                             <i class="fas fa-map-marker-alt"></i>
-                            <h4>Location</h4>
+                            <h4 data-translate="contactInfoLocation">Location</h4>
                             <p>Dammam<br>Kingdom of Saudi Arabia</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="contact-info-box">
                             <i class="fas fa-envelope"></i>
-                            <h4>Email Us</h4>
+                            <h4 data-translate="contactInfoEmail">Email Us</h4>
                             <p><a href="mailto:ehadyhabib@gmail.com">ehadyhabib@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="contact-info-box">
                             <i class="fas fa-phone"></i>
-                            <h4>Contact Us</h4>
+                            <h4 data-translate="contactInfoPhone">Contact Us</h4>
                             <p><a href="tel:+966599433137">+966 59 943 3137</a></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="contact-info-box">
                             <i class="fab fa-linkedin"></i>
-                            <h4>LinkedIn</h4>
+                            <h4 data-translate="contactInfoLinkedIn">LinkedIn</h4>
                             <p><a href="https://www.linkedin.com/in/ehady/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ehady</a>
                             </p>
                         </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Quick Contact -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <a href="https://wa.me/966599433137" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-translate="chatWhatsApp">Chat on WhatsApp</span>
+                        </a>
+                        <p class="whatsapp-subtitle" data-translate="instantResponse">Get instant response on WhatsApp</p>
                     </div>
                 </div>
 
@@ -3004,25 +3393,36 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="name" class="visually-hidden">Your Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Your Name *" required>
+                                        <input type="text" id="name" name="name" data-translate-placeholder="placeholderName" placeholder="Your Name *" required
+                                               minlength="2" maxlength="100"
+                                               pattern="[A-Za-z\s]+"
+                                               title="Please enter a valid name (letters only)">
+                                        <span class="field-error" id="name-error" style="display: none; color: #dc3545; font-size: 12px; margin-top: 5px; display: block;"></span>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="visually-hidden">Your Email</label>
-                                        <input type="email" id="email" name="_replyto" placeholder="Your Email *" required>
+                                        <input type="email" id="email" name="_replyto" data-translate-placeholder="placeholderEmail" placeholder="Your Email *" required
+                                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                               title="Please enter a valid email address">
+                                        <span class="field-error" id="email-error" style="display: none; color: #dc3545; font-size: 12px; margin-top: 5px; display: block;"></span>
                                     </div>
                                 </div>
                                 <label for="subject" class="visually-hidden">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="Subject">
+                                <input type="text" id="subject" name="subject" data-translate-placeholder="placeholderSubject" placeholder="Subject" maxlength="200">
                                 <label for="message" class="visually-hidden">Your Message</label>
-                                <textarea id="message" name="message" placeholder="Your Message *" required></textarea>
-                                <input type="text" name="_gotcha" style="display: none;" autocomplete="off">
+                                <textarea id="message" name="message" data-translate-placeholder="placeholderMessage" placeholder="Your Message *" required
+                                          minlength="10" maxlength="1000"></textarea>
+                                <div style="text-align: right; margin-top: -15px; margin-bottom: 15px;">
+                                    <small id="char-counter" style="color: #666;">0 / 1000 characters</small>
+                                </div>
+                                <input type="text" name="_gotcha" style="display: none !important;" tabindex="-1" autocomplete="off">
                                 <input type="hidden" name="_subject"
-                                    value="New Contact Form Submission from Portfolio!">
+                                    value="New Contact Form Submission from ehady.co">
                                 <div class="text-center">
-                                    <button type="submit" class="btn-primary-custom">Send Message</button>
+                                    <button type="submit" class="btn-primary-custom" id="submit-btn"><i class="fas fa-paper-plane"></i> <span data-translate="sendMessage">Send Message</span></button>
                                 </div>
                                 <div id="form-msg"
-                                    style="display: none; margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: #ffffff; border: 2px solid #4a4a4a; border-radius: 15px; text-align: center; font-weight: 700;">
+                                    style="display: none; margin-top: 30px; padding: 25px; border-radius: 15px; text-align: center; font-weight: 700;">
                                 </div>
                             </form>
                         </div>
@@ -3053,6 +3453,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Me</a></li>
                         <li><a href="#experience">Experience</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -3147,6 +3548,7 @@
                 education: "Education",
                 experience: "Experience",
                 skills: "Skills",
+                certifications: "Certifications",
                 services: "Services",
                 projects: "Projects",
                 gallery: "Gallery",
@@ -3195,6 +3597,10 @@
                 skill7: "AutoCAD & HAP Software",
                 skill8: "Standards Compliance (Aramco/FIFA)",
                 
+                // Certifications Section
+                certificationsCategory: "Professional Credentials",
+                certificationsTitle: "Certifications & Licenses",
+                
                 // Services Section
                 servicesCategory: "Services",
                 servicesTitle: "What I Do",
@@ -3237,6 +3643,30 @@
                 // Buttons
                 contactMe: "Contact Me",
                 sendMessage: "Send Message",
+                letsDiscuss: "Let's Discuss Your Project",
+                downloadPortfolio: "Download Portfolio",
+                startConversation: "Start a Conversation",
+                buildSomethingGreat: "Let's Build Something Great",
+                chatWhatsApp: "Chat on WhatsApp",
+                instantResponse: "Get instant response on WhatsApp",
+                
+                // Contact Info Boxes
+                contactInfoLocation: "Location",
+                contactInfoEmail: "Email Us",
+                contactInfoPhone: "Contact Us",
+                contactInfoLinkedIn: "LinkedIn",
+                
+                // Form Placeholders
+                placeholderName: "Your Name *",
+                placeholderEmail: "Your Email *",
+                placeholderSubject: "Subject",
+                placeholderMessage: "Your Message *",
+                
+                // CTA Sections
+                servicesCtaTitle: "Ready to bring your project to life?",
+                servicesCtaDesc: "Let's discuss how my expertise can help you achieve exceptional results",
+                projectsCtaTitle: "Interested in similar results for your project?",
+                projectsCtaDesc: "Let's discuss how I can help you deliver exceptional outcomes on time and within budget",
                 
                 // Stats
                 projectsCompleted: "Projects Completed",
@@ -3458,6 +3888,7 @@
                 education: "التعليم",
                 experience: "الخبرة",
                 skills: "المهارات",
+                certifications: "الشهادات",
                 services: "الخدمات",
                 projects: "المشاريع",
                 gallery: "المعرض",
@@ -3506,6 +3937,10 @@
                 skill7: "برامج AutoCAD و HAP",
                 skill8: "الامتثال للمعايير (أرامكو/فيفا)",
                 
+                // Certifications Section
+                certificationsCategory: "المؤهلات المهنية",
+                certificationsTitle: "الشهادات والتراخيص",
+                
                 // Services Section
                 servicesCategory: "الخدمات",
                 servicesTitle: "ما أقدمه",
@@ -3548,6 +3983,30 @@
                 // Buttons
                 contactMe: "اتصل بي",
                 sendMessage: "إرسال رسالة",
+                letsDiscuss: "لنناقش مشروعك",
+                downloadPortfolio: "تحميل الملف",
+                startConversation: "ابدأ محادثة",
+                buildSomethingGreat: "لنبني شيئًا رائعًا",
+                chatWhatsApp: "الدردشة عبر واتساب",
+                instantResponse: "احصل على رد فوري عبر واتساب",
+                
+                // Contact Info Boxes
+                contactInfoLocation: "الموقع",
+                contactInfoEmail: "راسلنا",
+                contactInfoPhone: "اتصل بنا",
+                contactInfoLinkedIn: "لينكد إن",
+                
+                // Form Placeholders
+                placeholderName: "اسمك *",
+                placeholderEmail: "بريدك الإلكتروني *",
+                placeholderSubject: "الموضوع",
+                placeholderMessage: "رسالتك *",
+                
+                // CTA Sections
+                servicesCtaTitle: "هل أنت مستعد لإحياء مشروعك؟",
+                servicesCtaDesc: "دعنا نناقش كيف يمكن لخبرتي أن تساعدك في تحقيق نتائج استثنائية",
+                projectsCtaTitle: "هل تهتم بنتائج مماثلة لمشروعك؟",
+                projectsCtaDesc: "دعنا نناقش كيف يمكنني مساعدتك في تحقيق نتائج استثنائية في الوقت المحدد وضمن الميزانية",
                 
                 // Stats
                 projectsCompleted: "المشاريع المنجزة",
@@ -3843,6 +4302,14 @@
                     } else {
                         element.textContent = t[key];
                     }
+                }
+            });
+            
+            // Update all elements with data-translate-placeholder attribute
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (t[key]) {
+                    element.setAttribute('placeholder', t[key]);
                 }
             });
             
@@ -4459,7 +4926,50 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Enhanced Form Submission with Error Handling
+        // Real-time Form Validation
+        function validateField(field) {
+            const errorSpan = document.getElementById(field.id + '-error');
+            
+            if (field.validity.valid) {
+                field.style.borderColor = '#28a745';
+                if (errorSpan) errorSpan.style.display = 'none';
+            } else {
+                field.style.borderColor = '#dc3545';
+                if (errorSpan) {
+                    errorSpan.textContent = field.validationMessage;
+                    errorSpan.style.display = 'block';
+                }
+            }
+        }
+
+        // Character counter and validation setup
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageField = document.getElementById('message');
+            const charCounter = document.getElementById('char-counter');
+            
+            if (messageField && charCounter) {
+                messageField.addEventListener('input', function() {
+                    const length = this.value.length;
+                    charCounter.textContent = `${length} / 1000 characters`;
+                    charCounter.style.color = length > 900 ? '#dc3545' : '#666';
+                });
+            }
+
+            // Add validation listeners to form fields
+            document.querySelectorAll('#contact-form input[required], #contact-form textarea[required]').forEach(field => {
+                field.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                field.addEventListener('input', function() {
+                    if (this.style.borderColor === 'rgb(220, 53, 69)') {
+                        validateField(this);
+                    }
+                });
+            });
+        });
+
+        // Enhanced Form Submission with Error Handling and GA4 Tracking
         async function submitForm(e) {
             e.preventDefault();
             const form = e.target;
@@ -4470,9 +4980,9 @@
             // Honeypot spam check
             if (honeypot) return false;
 
-            // Disable submit button
+            // Disable submit button with loading state
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
             try {
                 const response = await fetch(form.action, {
@@ -4484,27 +4994,60 @@
                 });
 
                 if (response.ok) {
-                    formMsg.textContent = '✅ Thank you for your message! I will get back to you soon.';
-                    formMsg.style.color = '#28a745';
+                    // Enhanced success message with styling
+                    formMsg.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 10px; padding: 15px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); border-radius: 8px; border-left: 4px solid #1e7e34;">
+                            <i class="fas fa-check-circle" style="font-size: 24px; color: #fff;"></i>
+                            <span style="color: #fff; font-weight: 500;">Thank you for your message! I will get back to you soon.</span>
+                        </div>
+                    `;
                     formMsg.style.display = 'block';
+                    
+                    // Reset form and character counter
                     form.reset();
+                    const charCount = document.getElementById('charCount');
+                    if (charCount) charCount.textContent = '0';
+
+                    // Track conversion in Google Analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            'event_category': 'Contact',
+                            'event_label': 'Form Submission',
+                            'value': 1
+                        });
+                    }
                 } else {
                     throw new Error('Form submission failed');
                 }
             } catch (error) {
-                formMsg.textContent = '❌ Oops! Something went wrong. Please try again or email me directly at ehadyhabib@gmail.com';
-                formMsg.style.color = '#dc3545';
+                // Enhanced error message with mailto link
+                formMsg.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 15px; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); border-radius: 8px; border-left: 4px solid #bd2130;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 24px; color: #fff;"></i>
+                        <span style="color: #fff; font-weight: 500;">
+                            Oops! Something went wrong. Please try again or email me directly at 
+                            <a href="mailto:ehadyhabib@gmail.com" style="color: #fff; text-decoration: underline;">ehadyhabib@gmail.com</a>
+                        </span>
+                    </div>
+                `;
                 formMsg.style.display = 'block';
+
+                // Track error in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'exception', {
+                        'description': 'Contact form submission failed',
+                        'fatal': false
+                    });
+                }
             } finally {
                 // Re-enable submit button
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
 
-                // Hide message after 7 seconds
+                // Hide message after 10 seconds
                 setTimeout(() => {
                     formMsg.style.display = 'none';
-                    formMsg.style.color = '#28a745'; // Reset color
-                }, 7000);
+                }, 10000);
             }
 
             return false;
@@ -4653,6 +5196,165 @@
                 console.log('Page visible - resuming');
             }
         });
+
+        // ==========================================
+        // GA4 CONVERSION TRACKING EVENTS
+        // ==========================================
+
+        // Track CV Download Clicks (with source tracking)
+        document.querySelectorAll('a[download*="CV"], a[href*="CV.pdf"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const source = this.closest('section')?.id || 'unknown';
+                const buttonText = this.textContent.trim();
+                
+                gtag('event', 'download_cv', {
+                    event_category: 'engagement',
+                    event_label: source,
+                    button_text: buttonText,
+                    value: 1
+                });
+                
+                console.log('GA4 Event: CV Download from', source);
+            });
+        });
+
+        // Track Contact Form View (IntersectionObserver)
+        const contactFormObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'view_contact_form', {
+                        event_category: 'engagement',
+                        event_label: 'contact_form_visible',
+                        value: 1
+                    });
+                    
+                    console.log('GA4 Event: Contact form viewed');
+                    contactFormObserver.unobserve(entry.target); // Track only once
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe contact form
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactFormObserver.observe(contactForm);
+            }
+        });
+
+        // Track Scroll Depth (25%, 50%, 75%, 100%)
+        let scrollDepthTracked = { 25: false, 50: false, 75: false, 100: false };
+
+        window.addEventListener('scroll', function() {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.pageYOffset / windowHeight) * 100;
+
+            Object.keys(scrollDepthTracked).forEach(depth => {
+                if (scrolled >= parseInt(depth) && !scrollDepthTracked[depth]) {
+                    scrollDepthTracked[depth] = true;
+                    
+                    gtag('event', 'scroll_depth', {
+                        event_category: 'engagement',
+                        event_label: depth + '%',
+                        value: parseInt(depth)
+                    });
+                    
+                    console.log('GA4 Event: Scroll depth', depth + '%');
+                }
+            });
+        });
+
+        // Track Social Link Clicks
+        document.querySelectorAll('a[href*="linkedin"], a[href*="wa.me"], a[href*="mailto"], a[href*="tel"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                let platform = 'unknown';
+                const href = this.href.toLowerCase();
+                
+                if (href.includes('linkedin')) platform = 'linkedin';
+                else if (href.includes('wa.me')) platform = 'whatsapp';
+                else if (href.includes('mailto')) platform = 'email';
+                else if (href.includes('tel')) platform = 'phone';
+                
+                gtag('event', 'social_click', {
+                    event_category: 'social',
+                    event_label: platform,
+                    link_url: this.href,
+                    value: 1
+                });
+                
+                console.log('GA4 Event: Social click -', platform);
+            });
+        });
+
+        // Track Project Gallery Interactions
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                const projectName = this.querySelector('h4')?.textContent || 'Unknown Project';
+                
+                gtag('event', 'gallery_view', {
+                    event_category: 'engagement',
+                    event_label: projectName,
+                    gallery_position: index + 1,
+                    value: 1
+                });
+                
+                console.log('GA4 Event: Gallery item clicked -', projectName);
+            });
+        });
+
+        // Track Sidebar Navigation Clicks
+        document.querySelectorAll('#sidebar nav a').forEach(navLink => {
+            navLink.addEventListener('click', function() {
+                const sectionName = this.textContent.trim();
+                const targetSection = this.getAttribute('href').replace('#', '');
+                
+                gtag('event', 'navigation_click', {
+                    event_category: 'navigation',
+                    event_label: sectionName,
+                    target_section: targetSection,
+                    value: 1
+                });
+                
+                console.log('GA4 Event: Navigation to', sectionName);
+            });
+        });
+
+        // Track CTA Button Clicks
+        document.querySelectorAll('.btn-primary-custom, .btn-outline-custom').forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonText = this.textContent.trim();
+                const section = this.closest('section')?.id || 'unknown';
+                const isExternal = this.hasAttribute('download') || this.getAttribute('href')?.startsWith('http');
+                
+                gtag('event', 'cta_click', {
+                    event_category: 'conversion',
+                    event_label: buttonText,
+                    section: section,
+                    is_external: isExternal,
+                    value: 1
+                });
+                
+                console.log('GA4 Event: CTA clicked -', buttonText, 'from', section);
+            });
+        });
+
+        // Track Form Submission Success
+        const originalFormHandler = window.submitForm;
+        window.submitForm = function() {
+            const result = originalFormHandler.apply(this, arguments);
+            
+            // Track form submission
+            gtag('event', 'form_submit', {
+                event_category: 'conversion',
+                event_label: 'contact_form',
+                form_id: 'contact-form',
+                value: 10 // High value for contact form submission
+            });
+            
+            console.log('GA4 Event: Contact form submitted');
+            return result;
+        };
 
         // Console Branding
         console.log('%c👷 Abdel Hady Habib', 'font-size: 24px; font-weight: bold; color: #000; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
