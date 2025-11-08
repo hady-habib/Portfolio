@@ -258,6 +258,17 @@
             text-align: right;
         }
 
+        body.rtl .certification-card {
+            text-align: right;
+            border-left: none;
+            border-right: 4px solid #000000;
+        }
+
+        body.rtl .certification-card:hover {
+            transform: translateX(-10px);
+            border-right-width: 6px;
+        }
+
         body.rtl .achievement-card {
             text-align: center;
         }
@@ -1348,7 +1359,7 @@
         .cert-badge {
             display: inline-block;
             padding: 6px 15px;
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
             color: #ffffff;
             font-size: 12px;
             font-weight: 700;
@@ -1359,19 +1370,19 @@
         }
 
         .cert-badge-aramco {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%);
         }
 
         .cert-badge-technical {
-            background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+            background: linear-gradient(135deg, #2a2a2a 0%, #4a4a4a 100%);
         }
 
         .cert-badge-software {
-            background: linear-gradient(135deg, #fd7e14 0%, #dc6502 100%);
+            background: linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 100%);
         }
 
         .cert-badge-safety {
-            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            background: linear-gradient(135deg, #4a4a4a 0%, #6a6a6a 100%);
         }
 
         .cert-content h4 {
@@ -2883,15 +2894,15 @@
                                 <i class="fas fa-certificate"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge">Active</span>
-                                <h4>Project Management Professional (PMP)</h4>
-                                <h5>Project Management Institute (PMI)</h5>
+                                <span class="cert-badge" data-translate="cert1Badge">Active</span>
+                                <h4 data-translate="cert1Title">Project Management Professional (PMP)</h4>
+                                <h5 data-translate="cert1Issuer">Project Management Institute (PMI)</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> January 2024</p>
-                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> January 2027</p>
-                                    <p><i class="fas fa-id-card"></i> <strong>Credential ID:</strong> PMI-12345678</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert1IssuedDate">January 2024</span></p>
+                                    <p><i class="fas fa-clock"></i> <strong data-translate="cert1Valid">Valid Until:</strong> <span data-translate="cert1ValidDate">January 2027</span></p>
+                                    <p><i class="fas fa-id-card"></i> <strong data-translate="cert1CredentialId">Credential ID:</strong> <span data-translate="cert1CredentialNumber">PMI-12345678</span></p>
                                 </div>
-                                <p class="cert-description">Globally recognized certification demonstrating advanced knowledge in project management methodologies, leadership, and strategic business management.</p>
+                                <p class="cert-description" data-translate="cert1Description">Globally recognized certification demonstrating advanced knowledge in project management methodologies, leadership, and strategic business management.</p>
                             </div>
                         </div>
                     </div>
@@ -2903,15 +2914,15 @@
                                 <i class="fas fa-award"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge cert-badge-aramco">Aramco Approved</span>
-                                <h4>Saudi Aramco Approved Contractor</h4>
-                                <h5>Saudi Aramco - Kingdom of Saudi Arabia</h5>
+                                <span class="cert-badge cert-badge-aramco" data-translate="cert2Badge">Aramco Approved</span>
+                                <h4 data-translate="cert2Title">Saudi Aramco Approved Contractor</h4>
+                                <h5 data-translate="cert2Issuer">Saudi Aramco - Kingdom of Saudi Arabia</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> March 2023</p>
-                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> March 2026</p>
-                                    <p><i class="fas fa-briefcase"></i> <strong>Specialization:</strong> MEP Construction</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert2IssuedDate">March 2023</span></p>
+                                    <p><i class="fas fa-clock"></i> <strong data-translate="cert1Valid">Valid Until:</strong> <span data-translate="cert2ValidDate">March 2026</span></p>
+                                    <p><i class="fas fa-briefcase"></i> <strong data-translate="cert2Specialization">Specialization:</strong> <span data-translate="cert2SpecValue">MEP Construction</span></p>
                                 </div>
-                                <p class="cert-description">Authorized to work on Saudi Aramco projects, meeting their stringent safety, quality, and technical standards for MEP engineering and construction.</p>
+                                <p class="cert-description" data-translate="cert2Description">Authorized to work on Saudi Aramco projects, meeting their stringent safety, quality, and technical standards for MEP engineering and construction.</p>
                             </div>
                         </div>
                     </div>
@@ -2923,15 +2934,15 @@
                                 <i class="fas fa-fan"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge cert-badge-technical">Technical</span>
-                                <h4>HVAC Systems Design & Analysis</h4>
-                                <h5>ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers)</h5>
+                                <span class="cert-badge cert-badge-technical" data-translate="cert3Badge">Technical</span>
+                                <h4 data-translate="cert3Title">HVAC Systems Design & Analysis</h4>
+                                <h5 data-translate="cert3Issuer">ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers)</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> June 2022</p>
-                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Permanent</p>
-                                    <p><i class="fas fa-tools"></i> <strong>Focus:</strong> Load Calculation, Energy Efficiency</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert3IssuedDate">June 2022</span></p>
+                                    <p><i class="fas fa-check-circle"></i> <strong data-translate="cert3Status">Status:</strong> <span data-translate="cert3StatusValue">Permanent</span></p>
+                                    <p><i class="fas fa-tools"></i> <strong data-translate="cert3Focus">Focus:</strong> <span data-translate="cert3FocusValue">Load Calculation, Energy Efficiency</span></p>
                                 </div>
-                                <p class="cert-description">Advanced certification in HVAC design principles, load calculations, energy modeling, and sustainable building systems.</p>
+                                <p class="cert-description" data-translate="cert3Description">Advanced certification in HVAC design principles, load calculations, energy modeling, and sustainable building systems.</p>
                             </div>
                         </div>
                     </div>
@@ -2943,15 +2954,15 @@
                                 <i class="fas fa-drafting-compass"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge cert-badge-software">Software</span>
-                                <h4>AutoCAD Certified Professional</h4>
-                                <h5>Autodesk</h5>
+                                <span class="cert-badge cert-badge-software" data-translate="cert4Badge">Software</span>
+                                <h4 data-translate="cert4Title">AutoCAD Certified Professional</h4>
+                                <h5 data-translate="cert4Issuer">Autodesk</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> September 2021</p>
-                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Permanent</p>
-                                    <p><i class="fas fa-laptop-code"></i> <strong>Software:</strong> AutoCAD, AutoCAD MEP</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert4IssuedDate">September 2021</span></p>
+                                    <p><i class="fas fa-check-circle"></i> <strong data-translate="cert3Status">Status:</strong> <span data-translate="cert4StatusValue">Permanent</span></p>
+                                    <p><i class="fas fa-laptop-code"></i> <strong data-translate="cert4Software">Software:</strong> <span data-translate="cert4SoftwareValue">AutoCAD, AutoCAD MEP</span></p>
                                 </div>
-                                <p class="cert-description">Certified in advanced AutoCAD features, 3D modeling, MEP-specific tools, and technical drawing standards for construction documentation.</p>
+                                <p class="cert-description" data-translate="cert4Description">Certified in advanced AutoCAD features, 3D modeling, MEP-specific tools, and technical drawing standards for construction documentation.</p>
                             </div>
                         </div>
                     </div>
@@ -2963,15 +2974,15 @@
                                 <i class="fas fa-hard-hat"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge cert-badge-safety">Safety</span>
-                                <h4>Construction Safety Management</h4>
-                                <h5>OSHA (Occupational Safety and Health Administration)</h5>
+                                <span class="cert-badge cert-badge-safety" data-translate="cert5Badge">Safety</span>
+                                <h4 data-translate="cert5Title">Construction Safety Management</h4>
+                                <h5 data-translate="cert5Issuer">OSHA (Occupational Safety and Health Administration)</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> November 2020</p>
-                                    <p><i class="fas fa-clock"></i> <strong>Valid Until:</strong> November 2025</p>
-                                    <p><i class="fas fa-shield-alt"></i> <strong>Level:</strong> 30-Hour Construction</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert5IssuedDate">November 2020</span></p>
+                                    <p><i class="fas fa-clock"></i> <strong data-translate="cert1Valid">Valid Until:</strong> <span data-translate="cert5ValidDate">November 2025</span></p>
+                                    <p><i class="fas fa-shield-alt"></i> <strong data-translate="cert5Level">Level:</strong> <span data-translate="cert5LevelValue">30-Hour Construction</span></p>
                                 </div>
-                                <p class="cert-description">Comprehensive training in construction safety standards, hazard recognition, risk management, and regulatory compliance.</p>
+                                <p class="cert-description" data-translate="cert5Description">Comprehensive training in construction safety standards, hazard recognition, risk management, and regulatory compliance.</p>
                             </div>
                         </div>
                     </div>
@@ -2983,15 +2994,15 @@
                                 <i class="fas fa-water"></i>
                             </div>
                             <div class="cert-content">
-                                <span class="cert-badge cert-badge-technical">Technical</span>
-                                <h4>Licensed Plumbing & Firefighting Systems Engineer</h4>
-                                <h5>Saudi Council of Engineers</h5>
+                                <span class="cert-badge cert-badge-technical" data-translate="cert6Badge">Technical</span>
+                                <h4 data-translate="cert6Title">Licensed Plumbing & Firefighting Systems Engineer</h4>
+                                <h5 data-translate="cert6Issuer">Saudi Council of Engineers</h5>
                                 <div class="cert-details">
-                                    <p><i class="fas fa-calendar-alt"></i> <strong>Issued:</strong> February 2019</p>
-                                    <p><i class="fas fa-check-circle"></i> <strong>Status:</strong> Active - Renewable</p>
-                                    <p><i class="fas fa-wrench"></i> <strong>License No:</strong> SCE-ME-54321</p>
+                                    <p><i class="fas fa-calendar-alt"></i> <strong data-translate="cert1Issued">Issued:</strong> <span data-translate="cert6IssuedDate">February 2019</span></p>
+                                    <p><i class="fas fa-check-circle"></i> <strong data-translate="cert3Status">Status:</strong> <span data-translate="cert6StatusValue">Active - Renewable</span></p>
+                                    <p><i class="fas fa-wrench"></i> <strong data-translate="cert6LicenseNo">License No:</strong> <span data-translate="cert6LicenseNumber">SCE-ME-54321</span></p>
                                 </div>
-                                <p class="cert-description">Professional engineering license for designing, implementing, and supervising plumbing, drainage, and firefighting systems in commercial and residential buildings.</p>
+                                <p class="cert-description" data-translate="cert6Description">Professional engineering license for designing, implementing, and supervising plumbing, drainage, and firefighting systems in commercial and residential buildings.</p>
                             </div>
                         </div>
                     </div>
@@ -3719,6 +3730,69 @@
                 certificationsCategory: "Professional Credentials",
                 certificationsTitle: "Certifications & Licenses",
                 
+                // Certification 1: PMP
+                cert1Badge: "Active",
+                cert1Title: "Project Management Professional (PMP)",
+                cert1Issuer: "Project Management Institute (PMI)",
+                cert1Issued: "Issued:",
+                cert1IssuedDate: "January 2024",
+                cert1Valid: "Valid Until:",
+                cert1ValidDate: "January 2027",
+                cert1CredentialId: "Credential ID:",
+                cert1CredentialNumber: "PMI-12345678",
+                cert1Description: "Globally recognized certification demonstrating advanced knowledge in project management methodologies, leadership, and strategic business management.",
+                
+                // Certification 2: Aramco
+                cert2Badge: "Aramco Approved",
+                cert2Title: "Saudi Aramco Approved Contractor",
+                cert2Issuer: "Saudi Aramco - Kingdom of Saudi Arabia",
+                cert2IssuedDate: "March 2023",
+                cert2ValidDate: "March 2026",
+                cert2Specialization: "Specialization:",
+                cert2SpecValue: "MEP Construction",
+                cert2Description: "Authorized to work on Saudi Aramco projects, meeting their stringent safety, quality, and technical standards for MEP engineering and construction.",
+                
+                // Certification 3: HVAC
+                cert3Badge: "Technical",
+                cert3Title: "HVAC Systems Design & Analysis",
+                cert3Issuer: "ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers)",
+                cert3IssuedDate: "June 2022",
+                cert3Status: "Status:",
+                cert3StatusValue: "Permanent",
+                cert3Focus: "Focus:",
+                cert3FocusValue: "Load Calculation, Energy Efficiency",
+                cert3Description: "Advanced certification in HVAC design principles, load calculations, energy modeling, and sustainable building systems.",
+                
+                // Certification 4: AutoCAD
+                cert4Badge: "Software",
+                cert4Title: "AutoCAD Certified Professional",
+                cert4Issuer: "Autodesk",
+                cert4IssuedDate: "September 2021",
+                cert4StatusValue: "Permanent",
+                cert4Software: "Software:",
+                cert4SoftwareValue: "AutoCAD, AutoCAD MEP",
+                cert4Description: "Certified in advanced AutoCAD features, 3D modeling, MEP-specific tools, and technical drawing standards for construction documentation.",
+                
+                // Certification 5: Safety
+                cert5Badge: "Safety",
+                cert5Title: "Construction Safety Management",
+                cert5Issuer: "OSHA (Occupational Safety and Health Administration)",
+                cert5IssuedDate: "November 2020",
+                cert5ValidDate: "November 2025",
+                cert5Level: "Level:",
+                cert5LevelValue: "30-Hour Construction",
+                cert5Description: "Comprehensive training in construction safety standards, hazard recognition, risk management, and regulatory compliance.",
+                
+                // Certification 6: Plumbing
+                cert6Badge: "Technical",
+                cert6Title: "Licensed Plumbing & Firefighting Systems Engineer",
+                cert6Issuer: "Saudi Council of Engineers",
+                cert6IssuedDate: "February 2019",
+                cert6StatusValue: "Active - Renewable",
+                cert6LicenseNo: "License No:",
+                cert6LicenseNumber: "SCE-ME-54321",
+                cert6Description: "Professional engineering license for designing, implementing, and supervising plumbing, drainage, and firefighting systems in commercial and residential buildings.",
+                
                 // Services Section
                 servicesCategory: "Services",
                 servicesTitle: "What I Do",
@@ -4054,6 +4128,73 @@
                 skill6: "قيادة الفريق",
                 skill7: "برامج AutoCAD و HAP",
                 skill8: "الامتثال للمعايير (أرامكو/فيفا)",
+                
+                // Certifications Section
+                certificationsCategory: "المؤهلات المهنية",
+                certificationsTitle: "الشهادات والتراخيص",
+                
+                // Certification 1: PMP
+                cert1Badge: "نشط",
+                cert1Title: "محترف إدارة المشاريع (PMP)",
+                cert1Issuer: "معهد إدارة المشاريع (PMI)",
+                cert1Issued: "تاريخ الإصدار:",
+                cert1IssuedDate: "يناير 2024",
+                cert1Valid: "صالح حتى:",
+                cert1ValidDate: "يناير 2027",
+                cert1CredentialId: "رقم الاعتماد:",
+                cert1CredentialNumber: "PMI-12345678",
+                cert1Description: "شهادة معترف بها عالميًا تثبت المعرفة المتقدمة في منهجيات إدارة المشاريع والقيادة والإدارة التجارية الاستراتيجية.",
+                
+                // Certification 2: Aramco
+                cert2Badge: "معتمد من أرامكو",
+                cert2Title: "مقاول معتمد من أرامكو السعودية",
+                cert2Issuer: "أرامكو السعودية - المملكة العربية السعودية",
+                cert2IssuedDate: "مارس 2023",
+                cert2ValidDate: "مارس 2026",
+                cert2Specialization: "التخصص:",
+                cert2SpecValue: "إنشاءات الأنظمة الكهروميكانيكية",
+                cert2Description: "مخول للعمل على مشاريع أرامكو السعودية، مع استيفاء معايير السلامة والجودة والمعايير الفنية الصارمة للهندسة والإنشاءات الكهروميكانيكية.",
+                
+                // Certification 3: HVAC
+                cert3Badge: "تقني",
+                cert3Title: "تصميم وتحليل أنظمة التكييف والتهوية",
+                cert3Issuer: "ASHRAE (الجمعية الأمريكية لمهندسي التدفئة والتبريد وتكييف الهواء)",
+                cert3IssuedDate: "يونيو 2022",
+                cert3Status: "الحالة:",
+                cert3StatusValue: "دائم",
+                cert3Focus: "التركيز:",
+                cert3FocusValue: "حساب الأحمال، كفاءة الطاقة",
+                cert3Description: "شهادة متقدمة في مبادئ تصميم التكييف، حسابات الأحمال، نمذجة الطاقة، وأنظمة المباني المستدامة.",
+                
+                // Certification 4: AutoCAD
+                cert4Badge: "برمجيات",
+                cert4Title: "محترف معتمد في AutoCAD",
+                cert4Issuer: "أوتوديسك",
+                cert4IssuedDate: "سبتمبر 2021",
+                cert4StatusValue: "دائم",
+                cert4Software: "البرامج:",
+                cert4SoftwareValue: "AutoCAD، AutoCAD MEP",
+                cert4Description: "معتمد في ميزات AutoCAD المتقدمة، النمذجة ثلاثية الأبعاد، أدوات MEP المتخصصة، ومعايير الرسم التقني لوثائق البناء.",
+                
+                // Certification 5: Safety
+                cert5Badge: "سلامة",
+                cert5Title: "إدارة سلامة البناء",
+                cert5Issuer: "OSHA (إدارة السلامة والصحة المهنية)",
+                cert5IssuedDate: "نوفمبر 2020",
+                cert5ValidDate: "نوفمبر 2025",
+                cert5Level: "المستوى:",
+                cert5LevelValue: "30 ساعة بناء",
+                cert5Description: "تدريب شامل في معايير سلامة البناء، التعرف على المخاطر، إدارة المخاطر، والامتثال التنظيمي.",
+                
+                // Certification 6: Plumbing
+                cert6Badge: "تقني",
+                cert6Title: "مهندس أنظمة السباكة ومكافحة الحرائق مرخص",
+                cert6Issuer: "مجلس المهندسين السعوديين",
+                cert6IssuedDate: "فبراير 2019",
+                cert6StatusValue: "نشط - قابل للتجديد",
+                cert6LicenseNo: "رقم الترخيص:",
+                cert6LicenseNumber: "SCE-ME-54321",
+                cert6Description: "ترخيص هندسي مهني لتصميم وتنفيذ والإشراف على أنظمة السباكة والصرف ومكافحة الحرائق في المباني التجارية والسكنية.",
                 
                 // Certifications Section
                 certificationsCategory: "المؤهلات المهنية",
