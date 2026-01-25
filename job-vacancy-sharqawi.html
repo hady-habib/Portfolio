@@ -356,13 +356,21 @@
     const submitBtn = document.getElementById('submitBtn');
     const statusMessage = document.getElementById('statusMessage');
     const form = document.getElementById('applicationForm');
+    
     function setStatus(message, isError = false) {
       statusMessage.textContent = message;
       statusMessage.className = 'status ' + (isError ? 'err' : 'ok');
     }
 
-    form.addEventListener('submit', async (event) => {
+    // Create hidden iframe for form submission (bypasses CORS)
+    let iframe = document.createElement('iframe');
+    iframe.name = 'hiddenFrame';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    form.addEventListener('submit', function(event) {
       event.preventDefault();
+      
       const cvFile = document.getElementById('cv').files[0];
       if (!cvFile) {
         setStatus('Please attach your CV (PDF).', true);
@@ -377,34 +385,25 @@
       submitBtn.textContent = 'Submitting…';
       setStatus('Uploading your application…');
 
-      // Build FormData manually to ensure all fields are captured
-      const formData = new FormData();
-      formData.append('fullName', document.getElementById('fullName').value);
-      formData.append('email', document.getElementById('email').value);
-      formData.append('phone', document.getElementById('phone').value);
-      formData.append('location', document.getElementById('location').value);
-      formData.append('experience', document.getElementById('experience').value);
-      formData.append('specialization', document.getElementById('specialization').value);
-      formData.append('motivation', document.getElementById('motivation').value);
-      formData.append('skills', document.getElementById('skills').value);
-      formData.append('cv', cvFile, cvFile.name);
+      // Set form to submit to iframe
+      form.setAttribute('action', WEB_APP_URL);
+      form.setAttribute('method', 'POST');
+      form.setAttribute('target', 'hiddenFrame');
+      form.setAttribute('enctype', 'multipart/form-data');
+      
+      // Submit the actual form
+      form.submit();
 
-      try {
-        const res = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData
-        });
-        // no-cors mode returns opaque response - we can't read it, but submission works
+      // Show success after 2 seconds (can't read iframe response due to CORS)
+      setTimeout(function() {
         setStatus('Application submitted successfully. Thank you!');
+        form.removeAttribute('action');
+        form.removeAttribute('method');
+        form.removeAttribute('target');
         form.reset();
-      } catch (err) {
-        console.error(err);
-        setStatus(err.message || 'Submission failed. Please retry.', true);
-      } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Application';
-      }
+      }, 2000);
     });
   </script>
 </body>
