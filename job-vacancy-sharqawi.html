@@ -377,6 +377,7 @@
     function updateButtonState(message) {
       const ready = gapiInited && gisInited;
       submitBtn.disabled = !ready;
+      submitBtn.textContent = ready ? 'Submit Application' : 'Loading Google APIs…';
       if (message) {
         statusMessage.textContent = message;
       } else {
