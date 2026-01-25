@@ -439,6 +439,9 @@
     }
 
     async function appendToSheet(cvLink) {
+      const accessToken = gapi.auth.getToken()?.access_token;
+      if (!accessToken) throw new Error('Missing Google auth token. Please reauthorize.');
+
       const formData = new FormData(form);
       const values = [[
         '=ROW()-1',
@@ -454,16 +457,20 @@
         cvLink
       ]];
 
-      const request = {
-        spreadsheetId: SPREADSHEET_ID,
-        range: 'Applications!A:K',
-        valueInputOption: 'USER_ENTERED',
-        resource: { values }
-      };
+      const range = 'Applications!A:K';
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${encodeURIComponent(range)}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + accessToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ values, majorDimension: 'ROWS' })
+      });
 
-      const result = await gapi.client.sheets.spreadsheets.values.append(request);
-      if (result.status !== 200) {
-        throw new Error('Sheet append failed with status ' + result.status);
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error('Sheet append failed: ' + text);
       }
     }
 
