@@ -258,17 +258,6 @@
             text-align: right;
         }
 
-        body.rtl .certification-card {
-            text-align: right;
-            border-left: none;
-            border-right: 4px solid #000000;
-        }
-
-        body.rtl .certification-card:hover {
-            transform: translateX(-10px);
-            border-right-width: 6px;
-        }
-
         body.rtl .achievement-card {
             text-align: center;
         }
@@ -276,39 +265,6 @@
         body.rtl .achievements-section {
             margin-right: 0;
             margin-left: 0;
-        }
-
-        body.rtl .testimonials-section {
-            margin-right: 0px;
-            margin-left: 0;
-        }
-
-        body.rtl .testimonial-card {
-            text-align: right;
-        }
-
-        body.rtl .testimonial-card::before {
-            left: auto;
-            right: 30px;
-        }
-
-        body.rtl .testimonial-author {
-            flex-direction: row-reverse;
-            text-align: right;
-        }
-
-        body.rtl .testimonial-author-info {
-            text-align: right;
-        }
-
-        body.rtl .testimonial-rating {
-            text-align: right;
-        }
-
-        body.rtl .testimonials-section .section-title span,
-        body.rtl .testimonials-section .section-title h2,
-        body.rtl .testimonials-section .section-title h2::after {
-            color: #ffffff !important;
         }
 
         /* RTL Support for Services Section - Center alignment */
@@ -1002,73 +958,44 @@
             line-height: 1.8;
         }
 
-        /* Skills Progress */
+        /* Skills */
         .skills-section {
             background: #fff;
         }
 
         .skill-progress-item {
-            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            min-height: 72px;
+            margin-bottom: 18px;
+            padding: 20px 24px;
+            background: var(--bg-light);
+            border-left: 4px solid #000000;
+        }
+
+        .skill-progress-item::before {
+            content: '\f00c';
+            margin-right: 16px;
+            color: #000000;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+
+        body.rtl .skill-progress-item {
+            border-right: 4px solid #000000;
+            border-left: 0;
+        }
+
+        body.rtl .skill-progress-item::before {
+            margin-right: 0;
+            margin-left: 16px;
         }
 
         .skill-progress-item h5 {
             font-size: 16px;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .skill-progress-item h5 span {
-            color: #000000;
-            font-size: 14px;
-        }
-
-        .progress-bar-wrapper {
-            height: 12px;
-            background: #e0e0e0;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #000000 0%, #4a4a4a 100%);
-            border-radius: 20px;
-            position: relative;
-            width: 0;
-            transition: width 2s ease;
-            animation: fillBar 2s ease forwards;
-        }
-
-        @keyframes fillBar {
-            from {
-                width: 0;
-            }
-        }
-
-        .progress-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shimmer 2s ease infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
+            margin: 0;
         }
 
         /* Services */
@@ -1313,124 +1240,6 @@
             color: var(--text-light);
             line-height: 1.8;
             margin-top: 15px;
-        }
-
-        /* Certifications Section */
-        .certifications-section {
-            background: var(--bg-light);
-        }
-
-        .certification-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid #000000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            height: 100%;
-            display: flex;
-            gap: 20px;
-        }
-
-        .certification-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            border-left-width: 6px;
-        }
-
-        .cert-icon {
-            flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #000000 0%, #3a3a3a 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-size: 36px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cert-content {
-            flex: 1;
-        }
-
-        .cert-badge {
-            display: inline-block;
-            padding: 6px 15px;
-            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cert-badge-aramco {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%);
-        }
-
-        .cert-badge-technical {
-            background: linear-gradient(135deg, #2a2a2a 0%, #4a4a4a 100%);
-        }
-
-        .cert-badge-software {
-            background: linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 100%);
-        }
-
-        .cert-badge-safety {
-            background: linear-gradient(135deg, #4a4a4a 0%, #6a6a6a 100%);
-        }
-
-        .cert-content h4 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .cert-content h5 {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        .cert-details {
-            background: rgba(0, 0, 0, 0.03);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .cert-details p {
-            font-size: 14px;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cert-details p:last-child {
-            margin-bottom: 0;
-        }
-
-        .cert-details i {
-            color: #000000;
-            font-size: 14px;
-            width: 18px;
-        }
-
-        .cert-description {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin: 0;
         }
 
         /* Contact */
@@ -1825,229 +1634,6 @@
             font-size: 20px;
         }
 
-        /* Join My Network Section */
-        .network-section {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .network-section .section-title span {
-            color: #000000;
-        }
-
-        .network-section .section-title h2 {
-            color: #000000;
-        }
-
-        .network-benefits {
-            margin-bottom: 50px;
-        }
-
-        .benefit-card {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            height: 100%;
-            border: 2px solid transparent;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            border-color: #000000;
-        }
-
-        .benefit-card i {
-            font-size: 48px;
-            background: linear-gradient(135deg, #000000 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .benefit-card h4 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        .benefit-card p {
-            color: #666666;
-            font-size: 15px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .cv-submission-form {
-            background: #ffffff;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .cv-submission-form h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #000000;
-        }
-
-        .cv-submission-form .form-subtitle {
-            color: #666666;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-
-        .cv-submission-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .cv-submission-form label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #000000;
-            font-size: 14px;
-        }
-
-        .cv-submission-form input,
-        .cv-submission-form select,
-        .cv-submission-form textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #d0d0d0;
-            border-radius: 10px;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            background: #ffffff;
-            color: #000000;
-        }
-
-        .cv-submission-form input:focus,
-        .cv-submission-form select:focus,
-        .cv-submission-form textarea:focus {
-            border-color: #000000;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .cv-submission-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .file-upload-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .file-upload-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .file-upload-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border: 2px dashed #d0d0d0;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f8f8f8;
-        }
-
-        .file-upload-label:hover {
-            border-color: #000000;
-            background: #f0f0f0;
-        }
-
-        .file-upload-label i {
-            font-size: 24px;
-            margin-right: 10px;
-            color: #666666;
-        }
-
-        .file-upload-label span {
-            color: #666666;
-            font-size: 15px;
-        }
-
-        .file-name-display {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #e8f5e9;
-            border-radius: 8px;
-            color: #2e7d32;
-            font-size: 14px;
-            display: none;
-        }
-
-        .file-name-display i {
-            margin-right: 8px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .btn-submit-cv {
-            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
-            color: #ffffff;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .btn-submit-cv:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #2a2a2a 0%, #000000 100%);
-        }
-
-        .cv-form-success {
-            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
-            color: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        .cv-form-success i {
-            font-size: 64px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .cv-form-success h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .cv-form-success p {
-            font-size: 16px;
-            margin: 0;
-        }
-
         /* WhatsApp Button */
         .btn-whatsapp {
             display: inline-flex;
@@ -2164,90 +1750,6 @@
             opacity: 0.9;
             line-height: 1.6;
             margin: 0;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
-
-            
-        }
-        
-        .testimonials-section .section-title span,
-        .testimonials-section .section-title h2 {
-            color: #ffffff !important;
-        }
-
-        .testimonial-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-            margin-bottom: 30px;
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 80px;
-            font-weight: 900;
-            color: rgba(0, 0, 0, 0.05);
-            line-height: 1;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-content p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial-author-info h5 {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin: 0 0 5px 0;
-        }
-
-        .testimonial-author-info span {
-            font-size: 14px;
-            color: #000000;
-            font-weight: 600;
-        }
-
-        .testimonial-rating {
-            color: #000000;
-            font-size: 16px;
-            margin-bottom: 15px;
         }
 
         /* Gallery Section */
@@ -2624,8 +2126,7 @@
 
             .main-content,
             .footer,
-            .achievements-section,
-            .testimonials-section {
+            .achievements-section {
                 margin-left: 0 !important;
             }
 
@@ -2656,8 +2157,7 @@
             }
 
             .footer,
-            .achievements-section,
-            .testimonials-section {
+            .achievements-section {
                 margin-left: 0;
             }
 
@@ -2695,8 +2195,7 @@
             }
             
             body.rtl .footer,
-            body.rtl .achievements-section,
-            body.rtl .testimonials-section {
+            body.rtl .achievements-section {
                 margin-right: 0;
             }
             
@@ -2715,8 +2214,7 @@
             body.rtl .about-content,
             body.rtl .timeline-item,
             body.rtl .service-card,
-            body.rtl .project-card,
-            body.rtl .testimonial-card {
+            body.rtl .project-card {
                 text-align: right;
             }
             
@@ -2733,16 +2231,6 @@
             
             /* Fix gallery spacing on mobile */
             .gallery-item {
-                margin-bottom: 20px;
-            }
-            
-            /* Testimonial cards mobile spacing */
-            .testimonial-card {
-                margin-bottom: 30px;
-            }
-            
-            /* Certification cards mobile */
-            .certification-card {
                 margin-bottom: 20px;
             }
             
@@ -3134,7 +2622,7 @@
         <!-- Hero Section -->
         <section class="hero-section" id="home">
             <div class="hero-content">
-                <h4>Hello! Professional!</h4>
+                <h4>Delivering Complex MEP Projects Across Saudi Arabia</h4>
                 <h1>I'm <span>Abdel Hady Habib</span></h1>
                 <h3 class="hero-subtitle">Senior Construction Manager & MEP Engineering Leader</h3>
                 <p class="hero-desc">
@@ -3387,54 +2875,30 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="skill-progress-item">
-                            <h5>Project Management <span>95%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 0.2s; width: 95%;"></div>
-                            </div>
+                            <h5>Project Management</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>MEP Design & Execution <span>98%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 0.4s; width: 98%;"></div>
-                            </div>
+                            <h5>MEP Design & Execution</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>Budget & Cost Control <span>92%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 0.6s; width: 92%;"></div>
-                            </div>
+                            <h5>Budget & Cost Control</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>HVAC Systems <span>100%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 0.8s; width: 100%;"></div>
-                            </div>
+                            <h5>HVAC Systems</h5>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="skill-progress-item">
-                            <h5>Quality Assurance (QA/QC) <span>93%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 1s; width: 93%;"></div>
-                            </div>
+                            <h5>Quality Assurance (QA/QC)</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>Team Leadership <span>90%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 1.2s; width: 90%;"></div>
-                            </div>
+                            <h5>Team Leadership</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>AutoCAD & HAP Software <span>96%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 1.4s; width: 96%;"></div>
-                            </div>
+                            <h5>AutoCAD & HAP Software</h5>
                         </div>
                         <div class="skill-progress-item">
-                            <h5>Standards Compliance (Aramco/FIFA) <span>100%</span></h5>
-                            <div class="progress-bar-wrapper">
-                                <div class="progress-bar-fill" style="animation-delay: 1.6s; width: 100%;"></div>
-                            </div>
+                            <h5>Standards Compliance (Aramco/FIFA)</h5>
                         </div>
                     </div>
                 </div>
@@ -3936,131 +3400,7 @@
         </div>
     </section>
 
-        <!-- Join My Network / Talent Pool Section -->
-        <section class="network-section" id="join-network">
-            <div class="container-fluid">
-                <div class="section-title">
-                    <span data-translate="networkCategory">Talent Network</span>
-                    <h2 data-translate="networkTitle">Join My Professional Network</h2>
-                </div>
-
-                <div class="row network-benefits mb-5">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="benefit-card">
-                            <i class="fas fa-handshake"></i>
-                            <h4 data-translate="benefit1Title">Direct Referrals</h4>
-                            <p data-translate="benefit1Desc">Get referred to top construction and engineering companies actively seeking talent</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="benefit-card">
-                            <i class="fas fa-building"></i>
-                            <h4 data-translate="benefit2Title">Premium Projects</h4>
-                            <p data-translate="benefit2Desc">Access opportunities in stadium construction, commercial, and industrial mega-projects</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="benefit-card">
-                            <i class="fas fa-network-wired"></i>
-                            <h4 data-translate="benefit3Title">Professional Network</h4>
-                            <p data-translate="benefit3Desc">Connect with industry leaders and expand your career opportunities</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="cv-submission-form" id="cv-form-container">
-                            <h3 data-translate="cvFormTitle">Submit Your Profile</h3>
-                            <p class="form-subtitle" data-translate="cvFormSubtitle">Join my network of qualified engineers and get matched with top companies</p>
-
-                            <form id="cv-submission-form" action="https://formspree.io/f/myzbqaqp" method="POST">
-                                <input type="hidden" name="_subject" value="New Engineer CV Submission">
-                                <input type="hidden" name="form_type" value="cv_submission">
-                                <input type="hidden" name="_gotcha" style="display:none">
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="cv-full-name" data-translate="labelFullName">Full Name *</label>
-                                        <input type="text" id="cv-full-name" name="full_name" required data-translate-placeholder="placeholderFullName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cv-email" data-translate="labelEmail">Email Address *</label>
-                                        <input type="email" id="cv-email" name="_replyto" required data-translate-placeholder="placeholderEmail">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="cv-phone" data-translate="labelPhone">Phone Number *</label>
-                                        <input type="tel" id="cv-phone" name="phone" required data-translate-placeholder="placeholderPhoneNumber">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="specialization" data-translate="labelSpecialization">Specialization *</label>
-                                        <select name="specialization" id="specialization" required>
-                                            <option value="" data-translate="selectSpecialization">Select Your Specialization</option>
-                                            <option value="mep" data-translate="specMEP">MEP Engineering</option>
-                                            <option value="hvac" data-translate="specHVAC">HVAC Design</option>
-                                            <option value="plumbing" data-translate="specPlumbing">Plumbing & Fire Fighting</option>
-                                            <option value="electrical" data-translate="specElectrical">Electrical Systems</option>
-                                            <option value="project_management" data-translate="specPM">Project Management</option>
-                                            <option value="qa_qc" data-translate="specQA">QA/QC Engineering</option>
-                                            <option value="civil" data-translate="specCivil">Civil Engineering</option>
-                                            <option value="other" data-translate="specOther">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="experience-years" data-translate="labelExperience">Years of Experience *</label>
-                                        <select name="experience_years" id="experience-years" required>
-                                            <option value="" data-translate="selectExperience">Select Experience Level</option>
-                                            <option value="0-2" data-translate="exp0to2">0-2 Years (Entry Level)</option>
-                                            <option value="3-5" data-translate="exp3to5">3-5 Years (Mid-Level)</option>
-                                            <option value="6-10" data-translate="exp6to10">6-10 Years (Senior)</option>
-                                            <option value="10+" data-translate="exp10plus">10+ Years (Expert)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cv-location" data-translate="labelLocation">Current Location *</label>
-                                        <input type="text" id="cv-location" name="location" required data-translate-placeholder="placeholderLocation">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cv-certifications" data-translate="labelCertifications">Certifications (Optional)</label>
-                                    <input type="text" id="cv-certifications" name="certifications" data-translate-placeholder="placeholderCertifications">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cv-bio" data-translate="labelBio">Brief Bio *</label>
-                                    <textarea name="bio" required data-translate-placeholder="placeholderBio" maxlength="500" id="cv-bio"></textarea>
-                                    <small style="color: #666; float: right;" id="cv-bio-counter">0 / 500</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cv-link" data-translate="labelCVLink">CV/Resume Link * (Google Drive, Dropbox, LinkedIn, etc.)</label>
-                                    <input type="url" id="cv-link" name="cv_link" required data-translate-placeholder="placeholderCVLink">
-                                    <small style="color: #666; display: block; margin-top: 5px;" data-translate="cvLinkHelper">Share your CV via Google Drive, Dropbox, or LinkedIn profile link</small>
-                                </div>
-
-                                <p class="form-privacy-note" data-translate="formPrivacyNotice">Your information is sent through Formspree and used only to respond to your submission.</p>
-                                <button type="submit" class="btn-submit-cv" data-translate="submitCV">Submit Your Profile</button>
-                            </form>
-                        </div>
-
-                        <div class="cv-form-success" id="cv-form-success" role="status" aria-live="polite">
-                            <i class="fas fa-check-circle"></i>
-                            <h3 data-translate="cvSubmitSuccess">Profile Submitted Successfully!</h3>
-                            <p data-translate="cvSubmitSuccessMsg">Thank you for joining my network. I'll review your profile and contact you when relevant opportunities arise.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-            <!-- Contact Section -->
+        <!-- Contact Section -->
         <section class="section contact-section" id="contact">
             <div class="container">
                 <div class="section-title text-center">
@@ -4268,16 +3608,14 @@
                 education: "Education",
                 experience: "Experience",
                 skills: "Skills",
-                certifications: "Certifications",
                 services: "Services",
                 projects: "Projects",
                 gallery: "Gallery",
-                testimonials: "Testimonials",
                 network: "Join My Network",
                 contact: "Contact",
                 
                 // Hero Section
-                hello: "Hello! Professional!",
+                hello: "Delivering Complex MEP Projects Across Saudi Arabia",
                 imText: "I'm",
                 name: "Abdel Hady Habib",
                 heroTitle: "Senior Construction Manager & MEP Engineering Leader",
@@ -4357,52 +3695,6 @@
                 inquirySuccess: "Inquiry Sent Successfully!",
                 inquirySuccessMsg: "Thank you for your interest. I'll review your inquiry and get back to you within 24 hours.",
                 formPrivacyNotice: "Your information is sent through Formspree and used only to respond to your submission.",
-                
-                // Join My Network Section
-                networkCategory: "Talent Network",
-                networkTitle: "Join My Professional Network",
-                benefit1Title: "Direct Referrals",
-                benefit1Desc: "Get referred to top construction and engineering companies actively seeking talent",
-                benefit2Title: "Premium Projects",
-                benefit2Desc: "Access opportunities in stadium construction, commercial, and industrial mega-projects",
-                benefit3Title: "Professional Network",
-                benefit3Desc: "Connect with industry leaders and expand your career opportunities",
-                cvFormTitle: "Submit Your Profile",
-                cvFormSubtitle: "Join my network of qualified engineers and get matched with top companies",
-                labelFullName: "Full Name *",
-                placeholderFullName: "Enter your full name",
-                labelEmail: "Email Address *",
-                placeholderEmail: "your.email@example.com",
-                labelPhone: "Phone Number *",
-                placeholderPhoneNumber: "+966 XXX XXX XXX",
-                labelSpecialization: "Specialization *",
-                selectSpecialization: "Select Your Specialization",
-                specMEP: "MEP Engineering",
-                specHVAC: "HVAC Design",
-                specPlumbing: "Plumbing & Fire Fighting",
-                specElectrical: "Electrical Systems",
-                specPM: "Project Management",
-                specQA: "QA/QC Engineering",
-                specCivil: "Civil Engineering",
-                specOther: "Other",
-                labelExperience: "Years of Experience *",
-                selectExperience: "Select Experience Level",
-                exp0to2: "0-2 Years (Entry Level)",
-                exp3to5: "3-5 Years (Mid-Level)",
-                exp6to10: "6-10 Years (Senior)",
-                exp10plus: "10+ Years (Expert)",
-                labelLocation: "Current Location *",
-                placeholderLocation: "City, Country",
-                labelCertifications: "Certifications (Optional)",
-                placeholderCertifications: "PMP, PE, Aramco Approved, etc.",
-                labelBio: "Brief Bio *",
-                placeholderBio: "Tell us about your experience, key projects, and career goals...",
-                labelCVLink: "CV/Resume Link * (Google Drive, Dropbox, LinkedIn, etc.)",
-                placeholderCVLink: "https://drive.google.com/file/d/your-cv-link",
-                cvLinkHelper: "Share your CV via Google Drive, Dropbox, or LinkedIn profile link",
-                submitCV: "Submit Your Profile",
-                cvSubmitSuccess: "Profile Submitted Successfully!",
-                cvSubmitSuccessMsg: "Thank you for joining my network. I'll review your profile and contact you when relevant opportunities arise.",
                 
                 // Contact Section
                 contactCategory: "Contact",
@@ -4544,11 +3836,11 @@
                 skill1: "Project Management",
                 skill2: "MEP Design & Execution",
                 skill3: "Budget & Cost Control",
-                skill4: "Quality Assurance (QA/QC)",
-                skill5: "Team Leadership",
-                skill6: "AutoCAD & HAP Software",
-                skill7: "Standards Compliance (Aramco/FIFA)",
-                skill8: "HVAC Systems",
+                skill4: "HVAC Systems",
+                skill5: "Quality Assurance (QA/QC)",
+                skill6: "Team Leadership",
+                skill7: "AutoCAD & HAP Software",
+                skill8: "Standards Compliance (Aramco/FIFA)",
                 
                 // Services Section
                 service1Title: "PROJECT LEADERSHIP",
@@ -4663,16 +3955,14 @@
                 education: "التعليم",
                 experience: "الخبرة",
                 skills: "المهارات",
-                certifications: "الشهادات",
                 services: "الخدمات",
                 projects: "المشاريع",
                 gallery: "المعرض",
-                testimonials: "التوصيات",
                 network: "انضم إلى شبكتي",
                 contact: "اتصل بي",
                 
                 // Hero Section
-                hello: "مرحباً! محترف!",
+                hello: "تنفيذ مشاريع كهروميكانيكية معقدة في المملكة العربية السعودية",
                 imText: "أنا",
                 name: "عبد الهادي حبيب",
                 heroTitle: "مدير إنشاءات أول وقائد هندسة الأنظمة الكهروميكانيكية",
@@ -4742,52 +4032,6 @@
                 inquirySuccess: "تم إرسال الاستفسار بنجاح!",
                 inquirySuccessMsg: "شكراً لاهتمامك. سأراجع استفسارك وأرد عليك خلال 24 ساعة.",
                 formPrivacyNotice: "تُرسل معلوماتك عبر Formspree وتُستخدم فقط للرد على طلبك.",
-                
-                // Join My Network Section
-                networkCategory: "شبكة المواهب",
-                networkTitle: "انضم إلى شبكتي المهنية",
-                benefit1Title: "إحالات مباشرة",
-                benefit1Desc: "احصل على إحالات إلى أفضل شركات البناء والهندسة التي تبحث عن مواهب",
-                benefit2Title: "مشاريع متميزة",
-                benefit2Desc: "فرص الوصول إلى مشاريع ملاعب وتجارية وصناعية ضخمة",
-                benefit3Title: "شبكة مهنية",
-                benefit3Desc: "تواصل مع قادة الصناعة ووسع فرصك المهنية",
-                cvFormTitle: "أرسل ملفك الشخصي",
-                cvFormSubtitle: "انضم إلى شبكتي من المهندسين المؤهلين وتطابق مع أفضل الشركات",
-                labelFullName: "الاسم الكامل *",
-                placeholderFullName: "أدخل اسمك الكامل",
-                labelEmail: "البريد الإلكتروني *",
-                placeholderEmail: "your.email@example.com",
-                labelPhone: "رقم الهاتف *",
-                placeholderPhoneNumber: "+966 XXX XXX XXX",
-                labelSpecialization: "التخصص *",
-                selectSpecialization: "اختر تخصصك",
-                specMEP: "هندسة الأنظمة الكهروميكانيكية",
-                specHVAC: "تصميم التكييف والتهوية",
-                specPlumbing: "السباكة ومكافحة الحرائق",
-                specElectrical: "الأنظمة الكهربائية",
-                specPM: "إدارة المشاريع",
-                specQA: "هندسة ضمان الجودة",
-                specCivil: "الهندسة المدنية",
-                specOther: "أخرى",
-                labelExperience: "سنوات الخبرة *",
-                selectExperience: "اختر مستوى الخبرة",
-                exp0to2: "0-2 سنة (مبتدئ)",
-                exp3to5: "3-5 سنوات (متوسط)",
-                exp6to10: "6-10 سنوات (خبير)",
-                exp10plus: "10+ سنوات (خبير متقدم)",
-                labelLocation: "الموقع الحالي *",
-                placeholderLocation: "المدينة، الدولة",
-                labelCertifications: "الشهادات (اختياري)",
-                placeholderCertifications: "PMP، PE، معتمد أرامكو، إلخ.",
-                labelBio: "نبذة مختصرة *",
-                placeholderBio: "أخبرنا عن خبرتك ومشاريعك الرئيسية وأهدافك المهنية...",
-                labelCVLink: "رابط السيرة الذاتية * (Google Drive, Dropbox, LinkedIn, إلخ.)",
-                placeholderCVLink: "https://drive.google.com/file/d/your-cv-link",
-                cvLinkHelper: "شارك سيرتك الذاتية عبر Google Drive أو Dropbox أو رابط ملفك الشخصي على LinkedIn",
-                submitCV: "أرسل ملفك الشخصي",
-                cvSubmitSuccess: "تم إرسال الملف الشخصي بنجاح!",
-                cvSubmitSuccessMsg: "شكراً لانضمامك إلى شبكتي. سأراجع ملفك الشخصي وأتواصل معك عند توفر الفرص المناسبة.",
                 
                 // Services Section
                 servicesCategory: "الخدمات",
@@ -4939,11 +4183,11 @@
                 skill1: "إدارة المشاريع",
                 skill2: "تصميم وتنفيذ الأنظمة الكهروميكانيكية",
                 skill3: "التحكم في الميزانية والتكاليف",
-                skill4: "ضمان الجودة",
-                skill5: "قيادة الفريق",
-                skill6: "برامج أوتوكاد وHAP",
-                skill7: "الامتثال للمعايير (أرامكو/فيفا)",
-                skill8: "أنظمة التكييف",
+                skill4: "أنظمة التكييف",
+                skill5: "ضمان الجودة",
+                skill6: "قيادة الفريق",
+                skill7: "برامج أوتوكاد وHAP",
+                skill8: "الامتثال للمعايير (أرامكو/فيفا)",
                 
                 // Services Section
                 service1Title: "قيادة المشاريع",
@@ -5052,32 +4296,6 @@
                 messagePlaceholder: "* رسالتك"
             }
         };
-
-        // Store original English content (done once on page load)
-        let originalContent = {};
-        let contentStored = false;
-
-        function storeOriginalContent() {
-            if (contentStored) return;
-            
-            // Store all text elements
-            document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, span, a, button').forEach((el, index) => {
-                const id = `el_${index}`;
-                el.setAttribute('data-original-id', id);
-                originalContent[id] = el.innerHTML;
-            });
-            contentStored = true;
-        }
-
-        // Restore original English content
-        function restoreOriginalContent() {
-            Object.keys(originalContent).forEach(id => {
-                const el = document.querySelector(`[data-original-id="${id}"]`);
-                if (el) {
-                    el.innerHTML = originalContent[id];
-                }
-            });
-        }
 
         // Language Toggle Function
         function toggleLanguage() {
@@ -5362,16 +4580,12 @@
                 if (skillsCat) skillsCat.textContent = t.skillsCategory2 || t.skillsCategory;
                 if (skillsTit) skillsTit.textContent = t.skillsTitle2 || t.skillsTitle;
                 
-                // Update skill names (h5 tags with percentages)
+                // Update skill names
                 const skillNames = skillsSection.querySelectorAll('.skill-progress-item h5');
                 const skillKeys = ['skill1', 'skill2', 'skill3', 'skill4', 'skill5', 'skill6', 'skill7', 'skill8'];
                 skillNames.forEach((skillName, index) => {
                     if (t[skillKeys[index]]) {
-                        const percentage = skillName.querySelector('span');
-                        if (percentage) {
-                            const percentText = percentage.textContent;
-                            skillName.innerHTML = `${t[skillKeys[index]]} <span>${percentText}</span>`;
-                        }
+                        skillName.textContent = t[skillKeys[index]];
                     }
                 });
             }
@@ -6074,103 +5288,6 @@
                 } catch (error) {
                     console.error('Form submission error:', error);
                     alert('There was a problem submitting your inquiry. Please try again or contact me directly.');
-                }
-            });
-        }
-
-        // ==========================================
-        // CV SUBMISSION FORM FUNCTIONALITY
-        // ==========================================
-
-        // File upload display
-        const cvFileInput = document.getElementById('cv-file');
-        const fileNameDisplay = document.getElementById('file-name-display');
-        const fileNameText = document.getElementById('file-name-text');
-
-        if (cvFileInput) {
-            cvFileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    // Check file size (5MB max)
-                    if (file.size > 5 * 1024 * 1024) {
-                        alert(document.body.getAttribute('lang') === 'ar' ? 'حجم الملف كبير جداً. الحد الأقصى 5 ميجابايت' : 'File size too large. Maximum 5MB allowed.');
-                        cvFileInput.value = '';
-                        fileNameDisplay.style.display = 'none';
-                        return;
-                    }
-                    
-                    fileNameText.textContent = file.name;
-                    fileNameDisplay.style.display = 'block';
-                }
-            });
-        }
-
-        // Bio character counter
-        const cvBio = document.getElementById('cv-bio');
-        const cvBioCounter = document.getElementById('cv-bio-counter');
-
-        if (cvBio && cvBioCounter) {
-            cvBio.addEventListener('input', function() {
-                const currentLength = this.value.length;
-                const maxLength = 500;
-                cvBioCounter.textContent = currentLength + ' / ' + maxLength;
-                
-                if (currentLength >= maxLength) {
-                    cvBioCounter.style.color = '#dc3545';
-                } else if (currentLength >= maxLength * 0.9) {
-                    cvBioCounter.style.color = '#ffc107';
-                } else {
-                    cvBioCounter.style.color = '#666';
-                }
-            });
-        }
-
-        // CV submission form
-        const cvSubmissionForm = document.getElementById('cv-submission-form');
-        const cvFormContainer = document.getElementById('cv-form-container');
-        const cvFormSuccess = document.getElementById('cv-form-success');
-
-        if (cvSubmissionForm) {
-            cvSubmissionForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(cvSubmissionForm);
-                
-                try {
-                    const response = await fetch(cvSubmissionForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        cvFormContainer.style.display = 'none';
-                        cvFormSuccess.style.display = 'block';
-                        
-                        // Track conversion
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'cv_submission', {
-                                'event_category': 'Form',
-                                'event_label': 'Engineer CV Submission'
-                            });
-                        }
-
-                        // Scroll to success message
-                        cvFormSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        const errorMsg = document.body.getAttribute('lang') === 'ar'
-                            ? 'حدثت مشكلة في إرسال ملفك. يرجى المحاولة مرة أخرى أو التواصل معي مباشرة.'
-                            : 'There was a problem submitting your profile. Please try again or contact me directly.';
-                        alert(errorMsg);
-                    }
-                } catch (error) {
-                    console.error('CV submission error:', error);
-                    const errorMsg = document.body.getAttribute('lang') === 'ar'
-                        ? 'حدثت مشكلة في إرسال ملفك. يرجى المحاولة مرة أخرى أو التواصل معي مباشرة.'
-                        : 'There was a problem submitting your profile. Please try again or contact me directly.';
-                    alert(errorMsg);
                 }
             });
         }
