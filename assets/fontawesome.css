@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("fonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/fa-brands-400.woff2") format("woff2");
+}
+
+.fa, .fas, .far, .fal, .fat, .fab {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fas, .fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fab, .fa-brands {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+.fa-arrow-up::before { content: "\f062"; }
+.fa-bars::before { content: "\f0c9"; }
+.fa-download::before { content: "\f019"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-globe::before { content: "\f0ac"; }
+.fa-paper-plane::before { content: "\f1d8"; }
+.fa-phone::before { content: "\f095"; }
+.fa-spinner::before { content: "\f110"; }
+.fa-times::before { content: "\f00d"; }
+.fa-linkedin-in::before { content: "\f0e1"; }
+.fa-linkedin::before { content: "\f08c"; }
+.fa-whatsapp::before { content: "\f232"; }
+
+.fa-spin { animation: fa-spin 1.5s infinite linear; }
+@keyframes fa-spin { to { transform: rotate(360deg); } }
